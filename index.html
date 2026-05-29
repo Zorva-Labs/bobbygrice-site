@@ -595,6 +595,11 @@
     }
     .album-cover {
       position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      background: none;
+      font: inherit;
       border: 1px solid rgba(201, 168, 76, 0.4);
       border-radius: 4px;
       overflow: hidden;
@@ -624,7 +629,8 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 700;
-      line-height: 1.05;
+      line-height: 1.2;
+      padding-bottom: 0.12em;
       margin-bottom: 16px;
       background: linear-gradient(135deg, #f5f0e8, #c9a84c, #f5f0e8);
       -webkit-background-clip: text;
@@ -684,6 +690,58 @@
     .album-link:hover .album-link-arrow {
       transform: translateX(4px);
       color: #c9a84c;
+    }
+    .album-cover { cursor: zoom-in; }
+
+    /* ===== ALBUM LIGHTBOX ===== */
+    .album-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .album-lightbox.open { opacity: 1; visibility: visible; }
+    .album-lightbox img {
+      max-width: min(90vw, 760px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      border-radius: 6px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      transform: scale(0.94);
+      transition: transform 0.35s ease;
+      cursor: zoom-out;
+    }
+    .album-lightbox.open img { transform: scale(1); }
+    .album-lightbox-close {
+      position: absolute;
+      top: 24px; right: 30px;
+      width: 46px; height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      border-radius: 50%;
+      background: rgba(10, 10, 10, 0.6);
+      color: #c9a84c;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .album-lightbox-close:hover {
+      background: #c9a84c;
+      color: #0a0a0a;
+      border-color: #c9a84c;
     }
 
     /* ===== ACHIEVEMENTS MARQUEE ===== */
@@ -1380,12 +1438,12 @@
   <section class="album" id="new-album">
     <div class="album-inner">
       <div class="album-art reveal">
-        <div class="album-cover">
+        <button type="button" class="album-cover" onclick="openAlbumLightbox('images/album-legacy-front.jpg', 'Bobby G. Rice — Legacy Edition album cover')" aria-label="Expand the Legacy Edition album cover">
           <img loading="lazy" decoding="async" src="images/album-legacy-front.jpg" alt="Bobby G. Rice — Legacy Edition album cover" width="1200" height="1200">
-        </div>
-        <div class="album-cover">
+        </button>
+        <button type="button" class="album-cover" onclick="openAlbumLightbox('images/album-legacy-back.jpg', 'Bobby G. Rice — Legacy Edition track list, 25 songs')" aria-label="Expand the Legacy Edition track list">
           <img loading="lazy" decoding="async" src="images/album-legacy-back.jpg" alt="Bobby G. Rice — Legacy Edition track list, 25 songs" width="1200" height="1200">
-        </div>
+        </button>
       </div>
       <div class="album-info reveal reveal-delay-1">
         <p class="album-eyebrow">New Album Out Now</p>
@@ -1416,6 +1474,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Album Lightbox -->
+  <div class="album-lightbox" id="albumLightbox" onclick="closeAlbumLightbox(event)">
+    <button type="button" class="album-lightbox-close" aria-label="Close" onclick="closeAlbumLightbox(event)">&times;</button>
+    <img id="albumLightboxImg" src="" alt="">
+  </div>
 
   <!-- Achievements Marquee -->
   <div class="achievements">
@@ -1894,6 +1958,24 @@
       document.getElementById('navLinks').classList.remove('open');
       document.getElementById('hamburger').classList.remove('active');
     }
+
+    // ===== ALBUM LIGHTBOX =====
+    function openAlbumLightbox(src, alt) {
+      const box = document.getElementById('albumLightbox');
+      const img = document.getElementById('albumLightboxImg');
+      img.src = src;
+      img.alt = alt || '';
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeAlbumLightbox(event) {
+      if (event) event.stopPropagation();
+      document.getElementById('albumLightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAlbumLightbox();
+    });
 
     // ===== SCROLL REVEAL =====
     const observer = new IntersectionObserver((entries) => {
