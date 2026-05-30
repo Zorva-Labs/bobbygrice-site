@@ -692,6 +692,27 @@
       color: #c9a84c;
     }
     .album-cover { cursor: zoom-in; }
+    .album-announcement {
+      max-width: 880px;
+      margin: 64px auto 0;
+      padding-top: 44px;
+      border-top: 1px solid rgba(201, 168, 76, 0.18);
+      text-align: center;
+    }
+    .album-announcement-lead {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #e8d48b;
+      margin-bottom: 22px;
+    }
+    .album-announcement-lead em { font-style: italic; color: #c9a84c; }
+    .album-announcement p:last-child {
+      font-size: 1.18rem;
+      line-height: 1.85;
+      color: rgba(245, 240, 232, 0.78);
+    }
 
     /* ===== ALBUM LIGHTBOX ===== */
     .album-lightbox {
@@ -1363,6 +1384,9 @@
 
       .album { padding: 60px 20px 70px; }
       .album-title { font-size: 2.3rem; }
+      .album-announcement { margin-top: 48px; padding-top: 34px; }
+      .album-announcement-lead { font-size: 1.3rem; }
+      .album-announcement p:last-child { font-size: 1.05rem; }
       .album-desc { font-size: 1.05rem; }
       .album-art { gap: 16px; }
 
@@ -1520,6 +1544,10 @@
           </a>
         </div>
       </div>
+    </div>
+    <div class="album-announcement reveal">
+      <p class="album-announcement-lead">Legendary Country Icon Bobby G. Rice Releases <em>Legacy Edition</em> — A Timeless Collection of Country Music History!</p>
+      <p>The brand-new &ldquo;Bobby G. Rice Legacy Edition&rdquo; is officially available now, celebrating the remarkable career of one of country music&rsquo;s most respected voices. With over 30 Billboard-charting singles, CMA recognition, Grand Ole Opry appearances, and one of the most recognizable country songs of the 1970s, Bobby G. Rice continues to prove why authentic country music never dies.</p>
     </div>
   </section>
 
@@ -1809,15 +1837,6 @@
     </div>
     <div class="videos-grid">
       <div class="video-card featured reveal">
-        <div class="video-wrapper">
-          <iframe src="https://player.vimeo.com/video/57950990?title=0&byline=0&portrait=0" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-          <h4>Bobby G. Rice &mdash; Classic Live Performance</h4>
-          <p>Vintage Live Performance</p>
-        </div>
-      </div>
-      <div class="video-card reveal">
         <div class="video-wrapper">
           <iframe src="https://www.youtube.com/embed/jPaUCVMZNM0" allowfullscreen loading="lazy"></iframe>
         </div>
