@@ -376,7 +376,8 @@
     }
     .product-options option { background: #1a1508; color: #f5f0e8; }
     .pp-form { margin: 0; }
-    .pp-form button {
+    .pp-form button,
+    .pp-form .pp-buy {
       display: block;
       width: 100%;
       padding: 16px 24px;
@@ -387,12 +388,15 @@
       font-size: 1.15rem;
       letter-spacing: 4px;
       text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
       cursor: pointer;
       transition: all 0.4s;
       position: relative;
       overflow: hidden;
     }
-    .pp-form button::before {
+    .pp-form button::before,
+    .pp-form .pp-buy::before {
       content: '';
       position: absolute;
       top: 0; left: -100%;
@@ -400,24 +404,31 @@
       background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
       transition: left 0.5s;
     }
-    .pp-form button:hover {
+    .pp-form button:hover,
+    .pp-form .pp-buy:hover {
       background: #c9a84c;
       color: #0a0a0a;
       box-shadow: 0 0 35px rgba(201,168,76,0.45);
       transform: translateY(-1px);
     }
-    .pp-form button:hover::before { left: 100%; }
-    .pp-form button .pp-icon {
+    .pp-form button:hover::before,
+    .pp-form .pp-buy:hover::before { left: 100%; }
+    .pp-form button .pp-icon,
+    .pp-form .pp-buy .pp-icon {
       display: inline-block;
       vertical-align: middle;
       margin-right: 10px;
       font-weight: 900;
       letter-spacing: -1px;
     }
-    .pp-form button .pp-icon b { color: #c9a84c; transition: color 0.4s; }
-    .pp-form button:hover .pp-icon b { color: #003087; }
-    .pp-form button .pp-icon i { color: #f5f0e8; transition: color 0.4s; font-style: normal; }
-    .pp-form button:hover .pp-icon i { color: #009cde; }
+    .pp-form button .pp-icon b,
+    .pp-form .pp-buy .pp-icon b { color: #c9a84c; transition: color 0.4s; }
+    .pp-form button:hover .pp-icon b,
+    .pp-form .pp-buy:hover .pp-icon b { color: #003087; }
+    .pp-form button .pp-icon i,
+    .pp-form .pp-buy .pp-icon i { color: #f5f0e8; transition: color 0.4s; font-style: normal; }
+    .pp-form button:hover .pp-icon i,
+    .pp-form .pp-buy:hover .pp-icon i { color: #009cde; }
     .pp-secure {
       display: block;
       margin-top: 10px;
@@ -599,8 +610,55 @@
 
     <div class="products-grid">
 
-      <!-- Then and Now -->
+      <!-- Legacy Edition (New Release) -->
       <article class="product-card reveal">
+        <div class="product-image-wrap">
+          <img src="images/album-legacy-front.jpg" alt="Bobby G. Rice - Legacy Edition album cover">
+        </div>
+        <h3 class="product-name">Legacy Edition</h3>
+        <p class="product-format">CD &bull; 25 Tracks</p>
+        <ol class="product-tracklist">
+          <li>Write Me A Letter</li>
+          <li>You Lay So Easy On My Mind</li>
+          <li>Sugar Shack</li>
+          <li>My Special Angel</li>
+          <li>Pick Me Up On Your Way Down</li>
+          <li>Is This The Way You Say Goodbye</li>
+          <li>Hey Baby</li>
+          <li>Livin' Together Lovin' Apart</li>
+          <li>Make It Feel Like Love Again</li>
+          <li>Mountain Of Love</li>
+          <li>What Goes Through Your Mind</li>
+          <li>Down In Texas</li>
+          <li>You Give Me You</li>
+          <li>Last Train To Clarksville</li>
+          <li>My Marie</li>
+          <li>Freda Comes, Freda Goes</li>
+          <li>I Miss You Already</li>
+          <li>Lover Please</li>
+          <li>Crazy</li>
+          <li>No Ordinary Memory</li>
+          <li>Woman Stealer</li>
+          <li>You Took Her Off My Hands</li>
+          <li>Suspicion</li>
+          <li>The Whole World's Making Love Again Tonight</li>
+          <li>You Make It So Easy</li>
+        </ol>
+        <div class="product-footer">
+          <div class="product-price">$19.99 <small>USD</small></div>
+          <div class="product-shipping">&#9733; Free USA Shipping &#9733;</div>
+          <div class="pp-form">
+            <a class="pp-buy" href="https://www.paypal.com/ncp/payment/DGDZD3VJF8CKN" target="_blank" rel="noopener" aria-label="Buy Legacy Edition CD with PayPal">
+              <span class="pp-icon"><b>Pay</b><i>Pal</i></span> Buy Now &mdash; $19.99
+            </a>
+            <span class="pp-secure">&#x1F512; Secure checkout via PayPal</span>
+          </div>
+          <p class="product-personalize">&#9998; The brand-new 25-song collection &bull; Free USA shipping</p>
+        </div>
+      </article>
+
+      <!-- Then and Now -->
+      <article class="product-card reveal reveal-delay-1">
         <div class="product-image-wrap">
           <img src="images/album-then-and-now.jpg" alt="Bobby G. Rice - Then and Now album cover">
         </div>
