@@ -28,6 +28,7 @@ npx wrangler pages deploy . --project-name=bobbygrice --branch=main --commit-dir
 - Google: GA4 `G-1RNWQ6TWQV` (property 539719729). On the zorva-labs-site daily digest (admin rollup + per-site daily and monthly client report to bobbynalice@yahoo.com) since 2026-06-01. GA4 tag installed 2026-08-04 and verified live.
 
 ## Forms, mail, tracking
+- `/traffic` (traffic-kit, installed 2026-09-17): `functions/_middleware.js` logs every HTML page view at the edge into D1 `bobbygrice-analytics` before any script runs; `assets/js/traffic-beacons.js` (loaded on every page) sends tap-to-call/email conversions, `/thanks` or `/thank-you` arrivals and time on page; dashboard is `traffic.html` at the root (served at `/traffic`), password = Pages secret `TRAFFIC_PASSWORD` = `BOBBYGRICE_TRAFFIC_PASSWORD` in `~/.env`. No geo-gate (`GEO_ALLOW=""`) — the site kept its worldwide audience. `_routes.json` keeps static folders out of the Function; `.assetsignore` keeps migrations and the manuals off the CDN.
 - Contact form → FormSubmit → bobbynalice@yahoo.com.
 - GA4 `G-1RNWQ6TWQV` (property 539719729) on every page; the site is on the legacy daily digest from `~/zorva-labs-site` (see `~/fleet/docs/reference/google.md`).
 
@@ -35,4 +36,4 @@ npx wrangler pages deploy . --project-name=bobbygrice --branch=main --commit-dir
 - Album covers are expandable and the Legacy Edition title once clipped — check merch layout at 375px after edits.
 
 ## Open items
-- No `/traffic` dashboard (pre-dates the standard).
+- (nothing recorded yet)

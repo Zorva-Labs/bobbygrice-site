@@ -1,0 +1,12 @@
+name = "bobbygrice"
+compatibility_date = "2026-09-17"
+pages_build_output_dir = "."
+
+[vars]
+GEO_ALLOW = ""
+CF_ZONE_ID = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bobbygrice-analytics"
+database_id = "671dde3c-2b21-413f-8535-c324c60580bf"
