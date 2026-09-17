@@ -1,0 +1,79 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Zorva-Labs/fleet/main/schema/site.schema.json",
+  "kind": "client-site",
+  "services": [
+    "website",
+    "hosting",
+    "seo"
+  ],
+  "platform": "cloudflare-pages",
+  "generator": "hand",
+  "canonicalHost": "www.bobbygrice.com",
+  "previewHost": "bobbygrice.pages.dev",
+  "cloudflare": {
+    "zoneId": null,
+    "d1": {},
+    "r2": {},
+    "workers": [],
+    "secrets": [],
+    "vars": {}
+  },
+  "traffic": null,
+  "crm": null,
+  "forms": {
+    "transport": "formsubmit",
+    "to": "bobbynalice@yahoo.com",
+    "activated": true,
+    "notes": "contact form added 2026-05-29, replacing a mailto button"
+  },
+  "mail": null,
+  "google": {
+    "ga4Property": "539719729",
+    "ga4Measurement": "G-1RNWQ6TWQV",
+    "gsc": null,
+    "adsCustomerId": null,
+    "adsConversionId": null,
+    "businessProfile": null,
+    "notes": "On the zorva-labs-site daily digest (admin rollup + per-site daily and monthly client report to bobbynalice@yahoo.com) since 2026-06-01. GA4 tag installed 2026-08-04 and verified live."
+  },
+  "meta": {
+    "pixelId": null,
+    "adAccountId": null,
+    "notes": ""
+  },
+  "billing": {
+    "stripeCustomer": null,
+    "stripeSubscription": null,
+    "plan": null,
+    "notes": ""
+  },
+  "geo": null,
+  "launched": "2026-05-15",
+  "built": "2026-05-15",
+  "updated": "2026-09-17",
+  "notes": "Repo was created 2026-05-15 from a mirror of the live direct-uploaded Cloudflare deployment; the repo is authoritative now.",
+  "name": "Bobby G. Rice",
+  "slug": "bobbygrice",
+  "status": "live",
+  "domain": "bobbygrice.com",
+  "repo": "Zorva-Labs/bobbygrice-site",
+  "localPath": "~/bobbygrice-site",
+  "project": "bobbygrice",
+  "client": {
+    "name": "Bobby G. Rice",
+    "contact": "Bobby & Alice",
+    "email": "bobbynalice@yahoo.com",
+    "phone": "",
+    "notes": "Country artist; Legacy Edition album (PayPal + Apple Music links)"
+  },
+  "build": {
+    "command": null,
+    "output": ".",
+    "check": null
+  },
+  "deploy": {
+    "command": "npx wrangler pages deploy . --project-name=bobbygrice --branch=main --commit-dirty=true",
+    "auth": "CLOUDFLARE_API_KEY + CLOUDFLARE_EMAIL (unset CLOUDFLARE_API_TOKEN)",
+    "notes": "deploys the repo root; nothing to build"
+  }
+}
