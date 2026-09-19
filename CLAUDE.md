@@ -21,7 +21,7 @@ npx wrangler pages deploy . --project-name=bobbygrice --branch=main --commit-dir
 - `index.html`, `bio.html`, `merch.html`, `404.html`; `images/`; `manifest.json`.
 - Hand-written static HTML/CSS/JS — no build step, no framework. Edit the files, deploy the repo root.
 - Every page carries title/description within the SEO windows, canonical, OG + Twitter card, JSON-LD graph, `llms.txt`, `robots.txt`, `sitemap.xml`; `_headers` sets the CSP and security headers (2026-05-15 SEO sweep, scanner 96–100).
-- Footer credit: `Web Design, SEO and Hosting by Nashville's Web Design`, a followed link, with creator/provider on the WebSite schema node (switched from the Zorva Labs credit 2026-09-17).
+- Footer credit: `Web Design, SEO and Hosting by Nashville's Web Design`, a `rel="nofollow noopener"` link (every credit in the estate is nofollow since 2026-09-19), with creator/provider on the WebSite schema node (switched from the Zorva Labs credit 2026-09-17).
 
 ## Infrastructure & accounts
 - Cloudflare Pages project `bobbygrice` → bobbygrice.pages.dev; domain bobbygrice.com (canonical www.bobbygrice.com).
