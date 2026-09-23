@@ -1,0 +1,19 @@
+{
+  "host": "www.bobbygrice.com",
+  "endpoint": "https://www.bing.com/indexnow",
+  "submitted": "2026-09-23T05:17:07.441Z",
+  "google": {
+    "property": "sc-domain:bobbygrice.com",
+    "sitemaps": [
+      "https://www.bobbygrice.com/sitemap.xml"
+    ],
+    "submitted": "2026-09-23T05:17:07.959Z"
+  },
+  "bing": null,
+  "urls": {
+    "https://www.bobbygrice.com/": {
+      "hash": "e9d0330c154ee53f",
+      "changed": "2026-09-23"
+    }
+  }
+}
