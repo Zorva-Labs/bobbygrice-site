@@ -1,19 +1,20 @@
 {
   "host": "www.bobbygrice.com",
   "endpoint": "https://www.bing.com/indexnow",
+  "version": 2,
   "submitted": "2026-09-23T05:17:07.441Z",
   "google": {
     "property": "sc-domain:bobbygrice.com",
     "sitemaps": [
       "https://www.bobbygrice.com/sitemap.xml"
     ],
-    "submitted": "2026-09-23T05:17:07.959Z"
+    "submitted": "2026-09-23T13:53:24.815Z"
   },
   "bing": null,
   "urls": {
     "https://www.bobbygrice.com/": {
-      "hash": "e9d0330c154ee53f",
-      "changed": "2026-09-23"
+      "hash": "7e689867520a463f",
+      "changed": "2026-09-17"
     }
   }
 }

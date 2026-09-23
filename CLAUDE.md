@@ -11,6 +11,7 @@ Artist site for country singer Bobby G. Rice: home, bio, merch (Legacy Edition a
 ```bash
 set -a; . ~/.env; set +a; unset CLOUDFLARE_API_TOKEN   # credentials live in ~/.env, never in the repo
 git fetch origin && git rev-list --count HEAD..origin/main   # must print 0 before any build or deploy
+node ~/site-kit/bin/site-kit.mjs lastmod   # each sitemap date = the day that page last changed (and its dateModified); commit sitemap.xml after
 npx wrangler pages deploy . --project-name=bobbygrice --branch=main --commit-dirty=true
 node ~/site-kit/bin/site-kit.mjs submit   # IndexNow + Search Console + Bing, once the real domain serves the deploy; commit .indexnow.json after
 ```
