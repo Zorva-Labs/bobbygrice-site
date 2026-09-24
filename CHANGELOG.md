@@ -2,6 +2,17 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-24 (Bing: www.bobbygrice.com)
+- Michael: add the www host in Bing (the open item in the entry below).
+- `bing.mjs add www.bobbygrice.com --apply`: added and verified. Bing uses one verification record for the bare domain and www, and it was already in the zone, so no DNS changed.
+- **Bing then folded the two into one property.** It now lists only `https://www.bobbygrice.com/`, and both URLs answer with the same sitemap record (`/sitemap.xml`, read 24 Sept, no errors).
+- gsc-ingest's `map-bing.mjs --apply` now pushes `https://www.bobbygrice.com/` into this site's D1, and it retired the bare-domain row.
+  - Nothing needed clearing. The bare-domain property had left no history here, only its sitemap row, which the first www push replaced.
+  - That run also mapped sbcnashville.com, which SBC's switch had added to Bing minutes earlier. It was the only other change.
+- Section 4 now reads "Connected as https://www.bobbygrice.com/". "Pages Bing has found" lists the sitemap's 3 pages, not asked about yet: Bing had throttled the account's page lookups for the day, so the nightly pull asks next run.
+- `site-kit submit` finds the www property from now on, since it tries the site's own host first. It reported that Bing has the sitemap. Nothing on the site changed, so no build and no deploy.
+- **Owed:** nothing.
+
 ## 2026-09-24 (/traffic section 4: what Bing holds now)
 - Michael: add four things from Bing to the traffic page on every dashboard: which of the site's pages Bing has found and when it last read each, the pages it couldn't read, pages in its index over time, and the sitemap's status. `add-bing.mjs --apply` (traffic-kit `cf8ef48`) refreshed section 4 and `functions/api/traffic/bing.js`. The figures come from gsc-ingest's nightly Bing pull (`66f863c`). "What Bing has read" and the two new panels show even while Bing has no search figures.
 - What Bing holds for bobbygrice.com today: the sitemap `www.bobbygrice.com/sitemap.xml` read 24 Sept, 1 page, no errors; no problem pages; its pages can't be asked about (below).

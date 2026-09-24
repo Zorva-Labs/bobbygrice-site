@@ -28,6 +28,7 @@ node ~/site-kit/bin/site-kit.mjs submit   # IndexNow + Search Console + Bing, on
 ## Infrastructure & accounts
 - Cloudflare Pages project `bobbygrice` → bobbygrice.pages.dev (noindexed by the middleware); apex and www both attached. The zone `bobbygrice.com` is on our account (`1c7ae11d1cc73e3279ec2d18d43a4b50`, Free) with one Single Redirect rule: the apex → `https://www.bobbygrice.com` + path, 301, query kept, `/.well-known/` excluded. `functions/_middleware.js` carries the same redirect first thing, so it travels with the repo; the zone rule also covers `/images/*` and `/assets/*`, which never reach the function (`_routes.json`).
 - Search Console: the domain property `sc-domain:bobbygrice.com` (michael@nashvilleswebdesign.com since 2026-09-23).
+- Bing Webmaster Tools: `https://www.bobbygrice.com/`, the host the site serves (since 2026-09-24). The bare-domain property it started as was folded into it when www was added, and gsc-ingest's `bing_targets` pushes the www one into this site's D1.
 - Google: GA4 `G-FM5M8NEW51` (property 555802348, the Nashville's Web Design account). The zorva-labs-site GA4 digest email (daily and monthly to bobbynalice@yahoo.com since 2026-06-01) ended 2026-09-23 with the estate's retirement of the traffic emails; the client's numbers are on `/traffic`. Since 2026-09-24, in place of `G-1RNWQ6TWQV` (property 539719729, installed 2026-08-04), a property michael@nashvilleswebdesign.com cannot see (the old Zorva daily digest), so nothing could feed `/traffic` from it.
 
 ## Forms, mail, tracking
