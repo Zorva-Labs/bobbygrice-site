@@ -10,7 +10,13 @@
     ],
     "submitted": "2026-09-23T13:53:24.815Z"
   },
-  "bing": null,
+  "bing": {
+    "site": "https://bobbygrice.com/",
+    "sitemaps": [
+      "https://www.bobbygrice.com/sitemap.xml"
+    ],
+    "checked": "2026-09-24T02:43:57.120Z"
+  },
   "urls": {
     "https://www.bobbygrice.com/": {
       "hash": "7e689867520a463f",
