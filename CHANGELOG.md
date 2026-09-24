@@ -2,6 +2,13 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-24 (/traffic section 4: what Bing holds now)
+- Michael: add four things from Bing to the traffic page on every dashboard: which of the site's pages Bing has found and when it last read each, the pages it couldn't read, pages in its index over time, and the sitemap's status. `add-bing.mjs --apply` (traffic-kit `cf8ef48`) refreshed section 4 and `functions/api/traffic/bing.js`. The figures come from gsc-ingest's nightly Bing pull (`66f863c`). "What Bing has read" and the two new panels show even while Bing has no search figures.
+- What Bing holds for bobbygrice.com today: the sitemap `www.bobbygrice.com/sitemap.xml` read 24 Sept, 1 page, no errors; no problem pages; its pages can't be asked about (below).
+- **Bing's site is `https://bobbygrice.com/`, but the site now serves www** (the apex 301s there, and the sitemap lists `www.bobbygrice.com` pages). Bing refuses page lookups outside its property's host, so "Pages Bing has found" stays empty, and Bing's search figures for the www pages don't land in this property. Fixing it means adding `https://www.bobbygrice.com/` in Bing Webmaster Tools and re-running gsc-ingest's `map-bing.mjs --apply`. That's Michael's call; it isn't done.
+- Built, deployed (`321a52e2`), submitted (nothing new to send).
+- **Owed:** Michael's call on adding the www host in Bing (above); until then section 4 shows only the bare domain's property.
+
 ## 2026-09-24 (GA4 moved to a Nashville's Web Design property; /traffic Analytics)
 - **GA4 is now `G-FM5M8NEW51` (property 555802348, the Nashville's Web Design account)**, in place of `G-1RNWQ6TWQV` (property 539719729). That property sits in the old Zorva daily-digest account, which michael@nashvilleswebdesign.com cannot see, so nothing could feed this site's `/traffic` from it. Michael's call, after an audit of every dashboard. The ID is swapped in `index.html`, `bio.html`, `merch.html` and `404.html`. The new property starts its history today; the old one is simply no longer fed.
 - `/traffic` section 3: the site is in `~/nashvilles-network/scripts/ga4-ingest.mjs` (nightly, 06:00 CT). `functions/api/traffic/data.js` now returns `dims`, the breakdowns the six Analytics cards read (pages, channels, events, new users, countries, devices). GA4 needs a day or two before the first figures.
