@@ -28,12 +28,12 @@ node ~/site-kit/bin/site-kit.mjs submit   # IndexNow + Search Console + Bing, on
 ## Infrastructure & accounts
 - Cloudflare Pages project `bobbygrice` → bobbygrice.pages.dev (noindexed by the middleware); apex and www both attached. The zone `bobbygrice.com` is on our account (`1c7ae11d1cc73e3279ec2d18d43a4b50`, Free) with one Single Redirect rule: the apex → `https://www.bobbygrice.com` + path, 301, query kept, `/.well-known/` excluded. `functions/_middleware.js` carries the same redirect first thing, so it travels with the repo; the zone rule also covers `/images/*` and `/assets/*`, which never reach the function (`_routes.json`).
 - Search Console: the domain property `sc-domain:bobbygrice.com` (michael@nashvilleswebdesign.com since 2026-09-23).
-- Google: GA4 `G-1RNWQ6TWQV` (property 539719729), installed 2026-08-04 and verified live. The zorva-labs-site GA4 digest email (daily and monthly to bobbynalice@yahoo.com since 2026-06-01) ended 2026-09-23 with the estate's retirement of the traffic emails; the client's numbers are on `/traffic`.
+- Google: GA4 `G-FM5M8NEW51` (property 555802348, the Nashville's Web Design account). The zorva-labs-site GA4 digest email (daily and monthly to bobbynalice@yahoo.com since 2026-06-01) ended 2026-09-23 with the estate's retirement of the traffic emails; the client's numbers are on `/traffic`. Since 2026-09-24, in place of `G-1RNWQ6TWQV` (property 539719729, installed 2026-08-04), a property michael@nashvilleswebdesign.com cannot see (the old Zorva daily digest), so nothing could feed `/traffic` from it.
 
 ## Forms, mail, tracking
 - `/traffic` (traffic-kit, installed 2026-09-17): `functions/_middleware.js` logs every HTML page view at the edge into D1 `bobbygrice-analytics` before any script runs; `assets/js/traffic-beacons.js` (loaded on every page) sends tap-to-call/email conversions, `/thanks` or `/thank-you` arrivals and time on page; dashboard is `traffic.html` at the root (served at `/traffic`), password = Pages secret `TRAFFIC_PASSWORD` = `BOBBYGRICE_TRAFFIC_PASSWORD` in `~/.env`. No geo-gate (`GEO_ALLOW=""`) — the site kept its worldwide audience. `_routes.json` keeps static folders out of the Function; `build.mjs`'s allow-list and the middleware's `isRepoFile` keep migrations and the manuals off the CDN.
 - Contact form → FormSubmit → bobbynalice@yahoo.com.
-- GA4 `G-1RNWQ6TWQV` (property 539719729) on every page.
+- GA4 `G-FM5M8NEW51` (property 555802348, the Nashville's Web Design account) on every page.
 
 ## Gotchas
 - Album covers are expandable and the Legacy Edition title once clipped — check merch layout at 375px after edits.
