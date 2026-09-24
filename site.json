@@ -11,7 +11,7 @@
   "canonicalHost": "www.bobbygrice.com",
   "previewHost": "bobbygrice.pages.dev",
   "cloudflare": {
-    "zoneId": null,
+    "zoneId": "1c7ae11d1cc73e3279ec2d18d43a4b50",
     "d1": {
       "DB": "bobbygrice-analytics"
     },
@@ -23,7 +23,8 @@
     "vars": {
       "GEO_ALLOW": "",
       "CF_ZONE_ID": ""
-    }
+    },
+    "redirectRule": "zone ruleset e22e117065a24d978a8c0941e974156c, rule b3fdb4d6642b484ca27276d30d4d69cf: bobbygrice.com → https://www.bobbygrice.com + path, 301, query kept, /.well-known/ excluded (2026-09-23)"
   },
   "traffic": {
     "path": "/traffic",
@@ -41,11 +42,11 @@
   "google": {
     "ga4Property": "539719729",
     "ga4Measurement": "G-1RNWQ6TWQV",
-    "gsc": null,
+    "gsc": "sc-domain:bobbygrice.com",
     "adsCustomerId": null,
     "adsConversionId": null,
     "businessProfile": null,
-    "notes": "On the zorva-labs-site daily digest (admin rollup + per-site daily and monthly client report to bobbynalice@yahoo.com) since 2026-06-01. GA4 tag installed 2026-08-04 and verified live."
+    "notes": "Search Console: the domain property sc-domain:bobbygrice.com, under michael@nashvilleswebdesign.com since 2026-09-23 (a verification TXT beside the older zorvalabs@ owner's). GA4 tag installed 2026-08-04 and verified live. The zorva-labs-site GA4 digest email ended 2026-09-23 (retired estate-wide); the client's numbers are on /traffic."
   },
   "meta": {
     "pixelId": null,
@@ -61,7 +62,7 @@
   "geo": null,
   "launched": "2026-05-15",
   "built": "2026-05-15",
-  "updated": "2026-09-17",
+  "updated": "2026-09-23",
   "notes": "Repo was created 2026-05-15 from a mirror of the live direct-uploaded Cloudflare deployment; the repo is authoritative now.",
   "name": "Bobby G. Rice",
   "slug": "bobbygrice",
@@ -86,5 +87,6 @@
     "command": "npx wrangler pages deploy dist --project-name=bobbygrice --branch=main --commit-dirty=true && node ~/site-kit/bin/site-kit.mjs submit",
     "auth": "CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID (unset CLOUDFLARE_API_KEY CLOUDFLARE_EMAIL — the global key stopped working 2026-09-23)",
     "notes": "build.mjs copies an allow-list of the public files into dist/ and dates the sitemap (site-kit lastmod); deploy dist/, never the root — a root deploy publishes CLAUDE.md, CHANGELOG.md, site.json, wrangler.toml and migrations/ (Pages ignores .assetsignore; ~/fleet/docs/gotchas.md); run from the repo root so Functions ship (wrangler reads ./functions and wrangler.toml there); secrets bind at deploy time; the last step submits the changes to IndexNow, Search Console and Bing — commit .indexnow.json after"
-  }
+  },
+  "canonicalHostNotes": "www, not the estate's usual apex: the site has been canonical on www since it was built and Google indexes www (the apex was 'Alternate page with proper canonical tag'). The apex 301s to www — the zone's redirect rule and the same block in functions/_middleware.js."
 }

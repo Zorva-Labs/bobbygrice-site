@@ -3,7 +3,8 @@
 // nothing here depends on the visitor's browser running a script, so ad
 // blockers, consent banners and tracking prevention cannot reduce them.
 //
-// Two jobs:
+// Two jobs, after the housekeeping (the apex 301 to www, repo files 404,
+// the *.pages.dev noindex):
 //   1. Optional geo-gate (off by default — see GEO_ALLOW in wrangler.toml).
 //   2. Log every real page view to D1 for the /traffic dashboard.
 //
@@ -125,6 +126,21 @@ async function notFound(context, url) {
 export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
+  // One hostname: www.bobbygrice.com, the canonical host since the site was
+  // built — every canonical, sitemap and schema URL uses it and it is the host
+  // Google indexes. The apex answers only with a 301 to it, path and query
+  // kept (gclid, fbclid, utm survive); /.well-known/ is left alone so the
+  // apex certificate can validate. The zone's redirect rule does the same
+  // before Pages is reached — this copy travels with the repo, and /images/*
+  // and /assets/* never reach this function anyway (_routes.json). Until
+  // 2026-09-23 the apex served the whole site with a 200.
+  if (url.hostname === 'bobbygrice.com' && !url.pathname.startsWith('/.well-known/')) {
+    const to = new URL(url);
+    to.protocol = 'https:';
+    to.hostname = 'www.bobbygrice.com';
+    to.port = '';
+    return new Response(null, { status: 301, headers: { location: to.toString(), 'cache-control': 'public, max-age=3600' } });
+  }
   const path = url.pathname;
   if (isRepoFile(path)) return notFound(context, url);
   const ua = request.headers.get('user-agent') || '';
