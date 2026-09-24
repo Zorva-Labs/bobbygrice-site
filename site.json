@@ -18,7 +18,8 @@
     "r2": {},
     "workers": [],
     "secrets": [
-      "TRAFFIC_PASSWORD"
+      "TRAFFIC_PASSWORD",
+      "CF_ANALYTICS_TOKEN"
     ],
     "vars": {
       "GEO_ALLOW": "",
