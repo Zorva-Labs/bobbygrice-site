@@ -2,6 +2,17 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-25 (/traffic: our own tools and Google's quiet fetchers are no longer visitors)
+- Michael asked for an audit of what `/traffic` counts as people (the full audit is in traffic-kit's CHANGELOG, 2026-09-25). Here, 33 page views were ours: 27 from `fleet audit`'s preview-host fetch (Node's own user agent, a Direct visit per run since 19 Sept), and 6 from a run on 23 Sept at 14:18 UTC.
+- `functions/_middleware.js` (traffic-kit `bin/add-our-checks.mjs`, `467fe81`) now logs these by name, never as visits:
+  - our own tools, which have carried `NashvillesWebDesignCheck` in their user agent since today;
+  - our scanners;
+  - the desktop app's preview browser;
+  - Google's fetchers that don't say "bot": AdWords-Express and AdWords-Instant, Read-Aloud, BusinessLinkVerification, NotebookLM, Apps Script, a bare "Google", and the rest of Google's list.
+- Built, checked (`traffic-kit check` Classification ✓), deployed (`0feb9a4f`, production confirmed through the Pages API), submitted. A request with the token to the new deployment: HTTP 200, logged as "Nashville's Web Design check" (pageviews 469).
+- Past rows are left as they are (Michael: "leave the current data alone and just fix for future").
+- **Owed:** nothing.
+
 ## 2026-09-25 (/traffic: the Bing tab draws again)
 - Michael: "bing is working on the traffic page for sbcnashville, but not on nittanytax or harmonytax, check all sites and fix bing."
 - **The cause:** since the tabbed page went on (24 Sept), its Bing tab threw whenever Bing had no search figures for the site. It counted the window back from Bing's latest day, which is null until Bing reports, and the date made from it threw, so the whole tab read "This part of the page couldn't be drawn". The sitemap, the pages Bing has found and the pages it couldn't read never showed, though the data was there.
