@@ -36,6 +36,7 @@ node ~/site-kit/bin/site-kit.mjs submit   # IndexNow + Search Console + Bing, on
 ## Forms, mail, tracking
 - `/traffic` (traffic-kit, installed 2026-09-17): `functions/_middleware.js` logs every HTML page view at the edge into D1 `bobbygrice-analytics` before any script runs; `assets/js/traffic-beacons.js` (loaded on every page) sends tap-to-call/email conversions, `/thanks` or `/thank-you` arrivals and time on page; dashboard is `traffic.html` at the root (served at `/traffic`), password = Pages secret `TRAFFIC_PASSWORD` = `BOBBYGRICE_TRAFFIC_PASSWORD` in `~/.env`. No geo-gate (`GEO_ALLOW=""`) — the site kept its worldwide audience. `_routes.json` keeps static folders out of the Function; `build.mjs`'s allow-list and the middleware's `isRepoFile` keep migrations and the manuals off the CDN. The dashboard's icons are the site's own (`/images/favicon-32.png`, `icon-192.png`, `apple-touch-icon.png`) in its `<!-- brand: icons -->` block, which traffic-kit's `upgrade.mjs` carries over since 2026-09-27. Before that, every refresh put back the scaffold's `/favicon.svg` and `/favicon.ico`, which this site never had.
 - Contact form → FormSubmit → bobbynalice@yahoo.com.
+- `/privacy` (`privacy.html`, 2026-09-27) says what the form, PayPal, the YouTube embeds, the log, `ts_src` and GA4 do. Change it with them; every footer links it.
 - GA4 `G-FM5M8NEW51` (property 555802348, the Nashville's Web Design account) on every page.
 
 ## Gotchas

@@ -2,6 +2,23 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-27 (a privacy page, linked from every page's footer)
+- **Why:** the estate's scanner (core 4.0, check `about-privacy`, rulebook rule 8) found no privacy policy linked from the home page, and `/privacy` answered 404. Michael asked for one on every site that lacked it: what the site's own form and analytics keep, read from the repo, in Bobby's name.
+- **`/privacy` (`privacy.html`)**: the bio page's head and stylesheet, the merch page's text hero (`.merch-hero`, so the site keeps its two hero treatments rather than gaining a third), and a reading block (`.legal`). The share card is the home page's (`share-bobby-guitar.jpg`), since the page has no picture of its own. What it says, each from the code:
+  - the contact form (`index.html`): name, email and message, posted from the browser straight to FormSubmit, which delivers it to Bobby. The site keeps no copy. The address isn't printed: the site shows none;
+  - the Merch page's Buy buttons: PayPal takes the payment and the shipping address (`no_shipping=2`) on its own pages;
+  - the three YouTube embeds on the home page, and the Spotify, Apple Music, Amazon Music and YouTube links;
+  - our own log (`functions/_middleware.js`): the page, what sent the visitor, device and browser, town, state, country and provider as Cloudflare estimates them; no IP. The beacon records seconds on the page. It doesn't count the form, which carries no `data-form`;
+  - `ts_src`, GA4's `_ga` / `_ga_FM5M8NEW51`, YouTube's own cookies;
+  - Cloudflare, Google Fonts;
+  - questions through the contact form, the only way to reach Bobby the site offers.
+- Title "Privacy Policy for bobbygrice.com | Bobby G. Rice" (49), description 157, canonical, OG and Twitter image, `WebPage` + `BreadcrumbList` tied to `#website` and `#person`, the GA4 tag and the beacon. In `sitemap.xml` (yearly, 0.3).
+- **The footers:** Privacy after Contact on the home, bio and merch pages (`404.html` has no footer).
+- **Checked:** `node build.mjs` (52 files; lastmod: only `/privacy` new). `site-kit check` still reports the earlier items; its FormSubmit note now names `privacy.html` too, for the link to FormSubmit's policy. In the browser pane at 375px: no sideways scroll, 20px gutters, the footer link.
+- **Deployed** `30c9a1e5`; submitted (IndexNow 1 URL, 200; Search Console; Bing). Live `https://www.bobbygrice.com/privacy` 200.
+- **Scanner** (`--no-psi`): 75, `about-privacy` **pass**: "The home page links an About page (/bio) and a privacy policy (/privacy)."
+- **Owed:** nothing for this.
+
 ## 2026-09-27 (share cards from Bobby's own pictures; the schema's pictures; the dashboard's icons)
 - **What Michael asked:** fix three of the items noted yesterday, each confirmed by `site-kit check`:
   - `/images/og-image.jpg`, the share image on all three pages, had never been in the repo and answered 404, so every share of the site went out with no picture;
