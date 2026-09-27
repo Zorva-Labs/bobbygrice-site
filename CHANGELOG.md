@@ -2,6 +2,38 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-27 (share cards from Bobby's own pictures; the schema's pictures; the dashboard's icons)
+- **What Michael asked:** fix three of the items noted yesterday, each confirmed by `site-kit check`:
+  - `/images/og-image.jpg`, the share image on all three pages, had never been in the repo and answered 404, so every share of the site went out with no picture;
+  - the MusicGroup's `logo` named `/images/icon-512.png`, removed 2026-09-23;
+  - `traffic.html` linked `/favicon.svg` and `/favicon.ico` again. They'd been fixed 2026-09-23 and came back when traffic-kit's `upgrade.mjs --apply` replaced the page on 24 Sept.
+- **A share card for each page.** Each is 1200×630, made from Bobby's own pictures already in `images/` (nothing generated), and each is that page's hero in small, with its words in the site's own faces:
+  - Home, `images/share-bobby-guitar.jpg`: `hero-bobby.png`, the photo with his Yamaha guitar, so the alt "Bobby G. Rice with his Yamaha guitar" is true now. Beside it are "Legendary Country Music Artist", "Bobby G. Rice" and the hero's three stats (30 Billboard Hits, 4+ Decades, #1 Hit Single).
+  - Bio, `images/share-about-bobby.jpg`: `bio-bobby.png`, the bio hero's photo, with "The Legend", "About Bobby" and "Bobby G. Rice". The alt is new: "Bobby G. Rice, arms folded, in an embroidered white western shirt".
+  - Merch, `images/share-legacy-edition.jpg`: the Legacy Edition cover, the album the page sells first, beside "Bobby's Merch", "Albums & Autographed CDs" and "Free Shipping in the USA". The alt is "Bobby G. Rice's Legacy Edition album cover".
+  - The cards are 106, 89 and 128 KB, under WhatsApp's 300 KB. They're named for their subjects: site-kit calls `og-image` a generic name.
+- **The tags:** each page's `og:image`, `og:image:secure_url` and `twitter:image` name its card, with the width and height true (1200×630). Bio gained `twitter:image:alt`. Merch gained `og:image:secure_url`, `og:image:type`, `og:image:alt` and `twitter:image:alt`, the image tags the other two pages already had.
+- **The schema's pictures:** the home page's MusicGroup and Person `image` is now `hero-bobby.png`, the photo the hero shows. Structured data describes what's on the page, and the bio's Person already names its own photo. A card with words on it isn't a photo of him. The MusicGroup's `logo` is `icon-192.png`, the one the Organization node uses.
+- **`scripts/share-cards.mjs`** draws the cards again: Chrome sets them in the site's faces from Google Fonts, inlined, and Pillow writes the JPGs. `/images/*` is cached immutable for a year (`_headers`), so a card that changes gets a new file name. The home card carries the hero's stats and changes with them (`CLAUDE.md`).
+- **`/traffic`'s icons are the site's own:** `/images/favicon-32.png`, `/images/icon-192.png` and `/images/apple-touch-icon.png`, the home page's three. They sit in a `<!-- brand: icons -->` block, written by traffic-kit's `upgrade.mjs --apply`. The page changed by that block alone.
+  - traffic-kit `5c99086` (Michael: should the upgrade carry a site's icons so this doesn't regress?). It does now. A page's icon block comes over verbatim. Where a page links an icon its site doesn't serve, the home page's own icons go in instead, and `traffic-kit check` warns about one.
+  - Seven other dashboards link icons their sites don't serve. They're in traffic-kit's open items, waiting for Michael's go-ahead.
+- **Checked:**
+  - `node build.mjs`: 51 files, and no file named that isn't in `dist/`. Before, it named `/favicon.svg` and `/favicon.ico`.
+  - `site-kit check`: 4 problems, down from 9. The share image on the three pages and the two icon links are gone. What's left was there before: the meta descriptions of `/bio` (231) and `/merch` (179), the robots.txt groups and the `/traffic` detection. The FAQ step is unchanged: 4 questions, all on the page.
+  - `traffic-kit check`: "the icons it links are files the site serves".
+  - In the browser pane on `dist/`: each page's `og:image` and `twitter:image` answer 200 `image/jpeg` at 1200×630. The schema's pictures answer 200, and so do the dashboard's icons. The FAQPage is written with its 4 questions, and there are no console errors.
+- **Deployed** `2134353f` (production, confirmed through the Pages API).
+- **Submitted:** IndexNow took 1 URL (200), and the sitemap was resubmitted to Search Console. Bing has it.
+  - The home page is the changed one: its structured data changed. Share tags aren't page content to `site-kit lastmod`, so `/bio` and `/merch` keep their dates.
+- **Verified live on www.bobbygrice.com:**
+  - The three cards answer 200 `image/jpeg`, 1200×630, the same bytes as the repo's.
+  - Each page names its own card in both tags, with its alt, and every schema picture answers 200.
+  - `/traffic` links the three icons (200 each) and no longer names `/favicon.svg` or `/favicon.ico`.
+  - Nothing names `/images/og-image.jpg` any more (still 404). The apex 301s to www, and bobbygrice.pages.dev still sends `X-Robots-Tag: noindex, nofollow`.
+- **Noticed along the way, not changed:** Facebook and LinkedIn keep a page's preview for a while after they first read it. A share there may show the old preview with no picture until they read the page again. Facebook's Sharing Debugger and LinkedIn's Post Inspector refresh it at once (Michael's login).
+- **Owed:** nothing for these three. The copy items from yesterday wait for Bobby's word: two CMA nominations against three, and the 50th anniversary as 2022 and 2023. So does one more: "4+ decades" on the site against "six decades" in `llms.txt`. They're recorded in `CLAUDE.md` → Open items.
+
 ## 2026-09-26 (the FAQ schema is the visible FAQ: one list, written by the build)
 - **The finding** (Michael, confirmed on the live site today): the home page's FAQPage JSON-LD asked four questions that appeared nowhere a visitor could read them, because the page had no FAQ at all. The four: "What was Bobby G. Rice's biggest hit?", "Was Bobby G. Rice nominated for any CMA awards?", "Where is Bobby G. Rice from?" and "Is Bobby G. Rice still performing?". Google's FAQ rules want the markup to describe what the page shows, and ours say the visible FAQ and the schema come from one list.
 - The hidden answers had also drifted from the site:
