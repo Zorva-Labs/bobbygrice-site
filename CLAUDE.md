@@ -23,6 +23,7 @@ node ~/site-kit/bin/site-kit.mjs submit   # IndexNow + Search Console + Bing, on
 - `index.html`, `bio.html`, `merch.html`, `404.html`; `images/`; `manifest.json`.
 - Hand-written static HTML/CSS/JS, no framework. Edit the files at the root; `node build.mjs` copies the public ones into `dist/`, which is what deploys.
 - Every page carries title/description within the SEO windows, canonical, OG + Twitter card, JSON-LD graph, `llms.txt`, `robots.txt`, `sitemap.xml`; `_headers` sets the CSP and security headers (2026-05-15 SEO sweep, scanner 96–100).
+- **The FAQ is its accordion.** The home page's "Questions About Bobby" (`.faq-item` in `index.html`) is the only FAQ list. `build.mjs` writes the FAQPage into `dist/` from it, word for word, and stops if a page carries a FAQPage of its own (2026-09-26). To add or change a question, edit the accordion, and answer only from what the site already says. `bobbygrice-dist` in `.claude/launch.json` previews `dist/`, where the schema is.
 - Footer credit: `Web Design, SEO and Hosting by Nashville's Web Design`, a `rel="nofollow noopener"` link (every credit in the estate is nofollow since 2026-09-19), with creator/provider on the WebSite schema node (switched from the Zorva Labs credit 2026-09-17).
 
 ## Infrastructure & accounts

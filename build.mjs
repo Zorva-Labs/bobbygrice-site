@@ -88,6 +88,50 @@ if (missing.size) {
   for (const x of [...missing].slice(0, 25)) console.log(`      ${x}`);
 }
 
+/* The FAQPage schema is the page's visible FAQ: one list, never a second copy.
+   Until 2026-09-26 the home page's JSON-LD asked four questions no visitor
+   could read, and two of its answers said what the site never did (a move to
+   Nashville; "Then and Now" as his newest album). So no page carries a
+   FAQPage: each page's accordion (`.faq-item`: `button.faq-q` +
+   `.faq-a-inner`) is its list, and the FAQPage is written here, into dist/,
+   from it, word for word — the same rule as Harmony Tax's and Nittany Tax's
+   builds. A page that carries its own FAQPage stops the build, and so does an
+   accordion item it cannot read. Edit the accordion. */
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', mdash: '—', ndash: '–', hellip: '…' };
+const plain = (html) => html
+  .replace(/<\/?(?:p|br|li|ul|ol|div|h[1-6])\b[^>]*>/gi, ' ')
+  .replace(/<[^>]+>/g, '')
+  .replace(/&#x([0-9a-f]+);/gi, (_, x) => String.fromCodePoint(parseInt(x, 16)))
+  .replace(/&#(\d+);/g, (_, x) => String.fromCodePoint(Number(x)))
+  .replace(/&([a-z]+);/gi, (m, name) => ENTITIES[name.toLowerCase()] ?? m)
+  .replace(/\s+/g, ' ').trim();
+const ACCORDION = /<button class="faq-q"[^>]*>([\s\S]*?)<\/button>\s*<div class="faq-a"[^>]*>\s*<div class="faq-a-inner"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/g;
+const faqStops = [];
+let faqWritten = 0;
+for (const file of walk(OUT).filter((f) => f.endsWith('.html'))) {
+  const rel = path.relative(OUT, file);
+  let h = fs.readFileSync(file, 'utf8');
+  if (/"@type"\s*:\s*(?:\[[^\]]*)?"FAQPage"/.test(h)) { faqStops.push(`${rel}: carries its own FAQPage — delete it; the build writes it from the accordion`); continue; }
+  const items = (h.match(/class="faq-item"/g) || []).length;
+  const shown = [...h.matchAll(ACCORDION)].map((m) => ({ q: plain(m[1]), a: plain(m[2]), nested: /<div\b/i.test(m[2]) }));
+  if (shown.length !== items || shown.some((x) => x.nested)) { faqStops.push(`${rel}: ${items} .faq-item, ${shown.length} read as button.faq-q + .faq-a-inner with no <div> inside the answer`); continue; }
+  if (!shown.length) continue;
+  const canonical = (h.match(/<link\b[^>]*\brel=["']canonical["'][^>]*\bhref=["']([^"']+)["']/i) || [])[1];
+  const faq = {
+    '@context': 'https://schema.org', '@type': 'FAQPage', ...(canonical ? { '@id': `${canonical}#faq` } : {}),
+    mainEntity: shown.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  };
+  h = h.replace('</head>', `<script type="application/ld+json">\n${JSON.stringify(faq).replace(/</g, '\\u003c')}\n</script>\n</head>`);
+  fs.writeFileSync(file, h);
+  faqWritten++;
+}
+if (faqStops.length) {
+  console.error('  ✗ FAQ: the schema and the visible FAQ are one list, and the build writes the schema:');
+  for (const s of faqStops) console.error(`      ${s}`);
+  process.exit(1);
+}
+console.log(`  FAQPage: written from the accordion on ${faqWritten} page(s)`);
+
 /* The sitemap's dates: each URL gets the day its page last changed — never the
    build date, which engines learn to ignore — and each page's WebPage
    dateModified the same. site-kit lastmod reads them from .indexnow.json (what

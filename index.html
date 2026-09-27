@@ -163,43 +163,6 @@
           "@type": "SpeakableSpecification",
           "cssSelector": ["h1", ".bio", ".hero p"]
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What was Bobby G. Rice's biggest hit?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bobby G. Rice's biggest hit was \"You Lay So Easy On My Mind,\" which reached #1 on the Billboard country charts in 1972. Over his career he placed 30 singles on the Billboard country charts."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Was Bobby G. Rice nominated for any CMA awards?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Bobby G. Rice received three CMA nominations in 1973 — Male Vocalist of the Year, Single of the Year, and Album of the Year. He was also the CMA/CRS New Faces Artist in 1971."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is Bobby G. Rice from?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bobby G. Rice was born in Boscobel, Wisconsin, before moving to Nashville to build his country music career."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Bobby G. Rice still performing?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Bobby continues to perform and release music. His most recent album, \"Then and Now,\" features both classic re-recordings and new material."
-            }
-          }
-        ]
       }
     ]
   }
@@ -1169,6 +1132,67 @@
       color: rgba(245, 240, 232, 0.5);
     }
 
+    /* ===== FAQ ===== */
+    .faq {
+      background: #0a0a0a;
+    }
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .faq-q {
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 4px;
+      background: none;
+      border: 0;
+      color: #f5f0e8;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .faq-q::after {
+      content: '+';
+      flex: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: #c9a84c;
+      transition: transform 0.3s;
+    }
+    .faq-q:hover,
+    .faq-item.open .faq-q { color: #c9a84c; }
+    .faq-q:focus-visible { outline: 2px solid #c9a84c; outline-offset: 4px; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    /* Collapsed only once the script has run, so the answers read without it. */
+    .faq-list.is-ready .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-a-inner {
+      padding: 0 48px 28px 4px;
+    }
+    .faq-a-inner p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(245, 240, 232, 0.8);
+    }
+    .faq-a-inner a {
+      color: #c9a84c;
+    }
+
     /* ===== CONTACT SECTION ===== */
     .contact {
       background: linear-gradient(180deg, #0a0a0a 0%, #0f0d08 100%);
@@ -1420,6 +1444,10 @@
 
       .awards-grid { grid-template-columns: 1fr; gap: 20px; }
       .award-card { padding: 30px 25px; }
+
+      .faq-q { font-size: 1.1rem; padding: 20px 2px; gap: 16px; }
+      .faq-a-inner { padding: 0 2px 22px; }
+      .faq-a-inner p { font-size: 1.05rem; }
 
       .videos-grid { gap: 20px; }
       .video-info h4 { font-size: 1.05rem; }
@@ -1919,6 +1947,34 @@
 
   <div class="golden-divider"></div>
 
+  <!-- FAQ: this accordion is the page's one FAQ list; build.mjs writes the FAQ schema from it, word for word -->
+  <section class="faq" id="faq">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Fans Ask</p>
+      <h2 class="section-title">Questions About Bobby</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-1" aria-controls="faq-a-1">What was Bobby G. Rice's biggest hit?</button>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div class="faq-a-inner"><p>"You Lay So Easy On My Mind," his #1 hit of 1973 and the song he's best known for. It earned him an ASCAP Award, and Loretta Lynn, Conway Twitty, Roy Orbison, Pat Boone and Andy Williams all recorded it. It's one of 30 singles he's put on the Billboard charts.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-2" aria-controls="faq-a-2">Was Bobby G. Rice nominated for any CMA awards?</button>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner"><p>Yes. In 1973 the CMA nominated him for Male Vocalist of the Year, Single of the Year and Album of the Year. Before that, in 1971, he was a CMA/CRS New Faces artist.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-3" aria-controls="faq-a-3">Where is Bobby G. Rice from?</button>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div class="faq-a-inner"><p>Boscobel, Wisconsin. His love of music started when he was a child, on his family's own radio show, and his 1970 remakes of "Sugar Shack" and "Hey Baby" carried his name well beyond Wisconsin. Boscobel has since honored him with a hometown sign.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-4" aria-controls="faq-a-4">Is Bobby G. Rice still performing?</button>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div class="faq-a-inner"><p>Yes. He still records, writes songs and tours, and he's available for concerts, festivals, private events and special appearances. To book him, send a note through <a href="#contact">Book Bobby</a>. His newest album, Legacy Edition, is out now: 25 songs from across his career.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="golden-divider"></div>
+
   <!-- Contact Section -->
   <section class="contact" id="contact">
     <div class="section-header reveal">
@@ -2069,6 +2125,23 @@
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAlbumLightbox();
+    });
+
+    // ===== FAQ ACCORDION =====
+    // The answers stay open until this runs (.is-ready collapses them).
+    document.querySelectorAll('.faq-list').forEach(list => list.classList.add('is-ready'));
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.setAttribute('aria-expanded', 'false');
+      q.addEventListener('click', () => {
+        const open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open ? 'true' : 'false');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : null;
+      });
+    });
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.faq-item.open .faq-a').forEach(a => { a.style.maxHeight = a.scrollHeight + 'px'; });
     });
 
     // ===== SCROLL REVEAL =====

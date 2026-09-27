@@ -12,6 +12,18 @@
         "."
       ],
       "port": 4103
+    },
+    {
+      "name": "bobbygrice-dist",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4104",
+        "--directory",
+        "dist"
+      ],
+      "port": 4104
     }
   ]
 }

@@ -2,6 +2,37 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-26 (the FAQ schema is the visible FAQ: one list, written by the build)
+- **The finding** (Michael, confirmed on the live site today): the home page's FAQPage JSON-LD asked four questions that appeared nowhere a visitor could read them, because the page had no FAQ at all. The four: "What was Bobby G. Rice's biggest hit?", "Was Bobby G. Rice nominated for any CMA awards?", "Where is Bobby G. Rice from?" and "Is Bobby G. Rice still performing?". Google's FAQ rules want the markup to describe what the page shows, and ours say the visible FAQ and the schema come from one list.
+- The hidden answers had also drifted from the site:
+  - one said he moved to Nashville, which the site never says;
+  - one named "Then and Now" as his most recent album, where the page's new album is Legacy Edition;
+  - one dated the #1 to 1972, where the singles card and the bio say 1973.
+- **The fix: a visible FAQ, and the build writes the schema from it.** It's the rule Harmony Tax and Nittany Tax got the same day.
+  - `index.html`: a "Questions About Bobby" section between Awards & Honors and Book Bobby, built from the page's own section header, type and gold rules. It holds the four questions in an accordion (`.faq-item`: `button.faq-q` + `.faq-a-inner`). The answers stay open until the page's script runs, so they read without it.
+  - The hand-written FAQPage node is gone from the JSON-LD graph. It was cut by its text span; every other node parses back unchanged.
+  - `build.mjs` writes the FAQPage into `dist/` from the accordion, word for word. Its `@id` is https://www.bobbygrice.com/#faq, the section's own anchor.
+  - A page that carries its own FAQPage stops the build, and so does an accordion item it can't read. Tested in a throwaway copy: both stopped it (exit 1, no dated sitemap).
+- **Every answer comes from what the site already says:**
+  - The biggest hit: "You Lay So Easy On My Mind", his #1 of 1973 (the singles card, the bio's highlights), with the ASCAP Award it won him (Awards & Honors), the artists who recorded it (About Bobby) and his 30 Billboard singles.
+  - CMA: nominated in 1973 for Male Vocalist, Single and Album of the Year, and a CMA/CRS New Faces artist in 1971 (Awards & Honors, the bio).
+  - Where he's from: Boscobel, Wisconsin, with the family radio show, the 1970 remakes of "Sugar Shack" and "Hey Baby" and the hometown sign (the bio). The move to Nashville is gone.
+  - Still performing: Michael's call, asked in this session, was to answer from the bio and Book Bobby. The bio says "Rice still continues to record, write songs and tour", and Book Bobby offers concerts, festivals, private events and special appearances. The answer also names Legacy Edition as his newest album. If he stops touring, the bio, Book Bobby and this answer change together.
+- `.claude/launch.json`: a `bobbygrice-dist` preview (port 4104) that serves `dist/`, since the FAQPage exists only there now.
+- **Checked:**
+  - `node build.mjs`: FAQPage written from the accordion on 1 page.
+  - `site-kit check` (FAQ step, site-kit `aa168ec`): "every FAQPage question and answer is on its page (4 question(s) on 1 page(s))". Before the fix it reported "no page has a visible FAQ" and 4 questions not on the page. Its other 9 problems are the ones it reported before (below, and the meta descriptions of `/bio` and `/merch`, robots.txt groups, the `/traffic` detection).
+  - In the browser pane, on `dist/` served locally, the schema's questions and answers equal the accordion's text, 4 of 4. At 375px the accordion opens and closes, the question buttons are 72–89px tall and nothing is wider than the screen. Checked at 1280 too.
+- **Deployed** `b6acfea0` (production, confirmed through the Pages API).
+- **Submitted:** IndexNow took the 1 changed URL (200), the sitemap was resubmitted to Search Console, and Bing has it.
+- **Verified live:** all 3 sitemap URLs fetched. The home page carries one FAQPage with 4 questions, and every question and answer is in its visible text (head, scripts and tags out, case and punctuation aside). The same check on the previous deployment (`147f37dc`) reports all 4 not on the page. bobbygrice.pages.dev is still `noindex, nofollow`.
+- **Noticed along the way, not changed:**
+  - The meta description says "two-time CMA nominee", while the page lists three nominations in 1973.
+  - The bio dates the song's 50th release anniversary to both 2022 and 2023.
+  - `/images/og-image.jpg`, the share image on all three pages, has never been in the repo and answers 404 live. The MusicGroup `logo` still names `/images/icon-512.png`, which was removed 2026-09-23.
+  - `traffic.html` links `/favicon.svg` and `/favicon.ico` again (the build names them), since the tabbed dashboard replaced the page.
+- **Owed:** nothing for the FAQ. To add or change a question, edit the accordion in `index.html`. The items above need Michael's word, and the first two need Bobby's.
+
 ## 2026-09-26 (/traffic: Lead Gen Digital Marketing's scanner is logged as ours, never as a visit)
 - leadgendigitalmarketing.com now runs a free scan. Its fetches carry `LeadGenDigitalScanner` in a Chrome user agent, and no rule here named it, so the middleware took the scanner for a person and a scan's first page for a visit. Michael asked for it on every site's own-checks list, beside our other two scanners.
 - `functions/_middleware.js`: one line in the `// our-checks:` block (traffic-kit `bin/add-our-checks.mjs`, `ccf9c82`). The scanner is now logged as "Nashville's Web Design scanner", the label the agency's own scanner has here, and like any named bot it passes the geo gate.
