@@ -2,6 +2,23 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-09-28 (the preview hosts noindex every file: the `/migrate www` rule in `_headers`)
+- **Why:** a live check on 2026-09-28 found `bobbygrice.pages.dev` serving the site's files with no noindex: `bobbygrice.pages.dev/images/share-bobby-guitar.jpg` answered 200 with no `X-Robots-Tag`. The middleware noindexes everything on the preview host that reaches it, but `_routes.json` keeps `/images/*` and `/assets/*` out of Functions, and the root `_headers` had no rule for the host. The estate standard is that `*.pages.dev` is never indexed, and `/migrate www` puts the rule in `_headers` so images are covered too. The check found the same on seven other sites, and Michael asked for that rule alone on all eight; the client asked for nothing here.
+- **Changed:** the rule `/migrate www` writes, appended word for word to the root `_headers`, the one the build copies into `dist/`:
+  - `https://:project.pages.dev/*` → `X-Robots-Tag: noindex, nofollow`, for `bobbygrice.pages.dev`;
+  - `https://:version.:project.pages.dev/*` → the same, for each deployment's own `<hash>.bobbygrice.pages.dev`;
+  - nothing else. The rest of `/migrate www` wasn't run: its www → apex step stops on this site, where www is the canonical host.
+- **Checked:**
+  - `node build.mjs`: `dist/_headers` is the root `_headers` byte for byte, both rules in it. lastmod kept all 4 dates, since no page changed.
+  - `site-kit check`: the same output as before the change, word for word (the 3 problems it already had).
+- **Deployed** `1c5e55ea`. **Submitted:** no page changed, so nothing was sent.
+- **Verified live** (user agent `NashvillesWebDesignCheck`):
+  - `bobbygrice.pages.dev/images/share-bobby-guitar.jpg` and `/assets/js/traffic-beacons.js`: 200 with `X-Robots-Tag: noindex, nofollow`. Before, neither carried one. The pages load no stylesheet file of their own (the styles are inline, the fonts come from Google), so the beacon script stood in for one.
+  - `1c5e55ea.bobbygrice.pages.dev/images/share-bobby-guitar.jpg`: the same.
+  - `bobbygrice.pages.dev/`: one `X-Robots-Tag: noindex, nofollow`, as before, not two. The middleware sets it with `headers.set`, which replaces a value already on the response.
+  - `www.bobbygrice.com/images/share-bobby-guitar.jpg` and `/assets/js/traffic-beacons.js`: 200 with no `X-Robots-Tag`, as before.
+- **Owed:** nothing for this.
+
 ## 2026-09-27 (a privacy page, linked from every page's footer)
 - **Why:** the estate's scanner (core 4.0, check `about-privacy`, rulebook rule 8) found no privacy policy linked from the home page, and `/privacy` answered 404. Michael asked for one on every site that lacked it: what the site's own form and analytics keep, read from the repo, in Bobby's name.
 - **`/privacy` (`privacy.html`)**: the bio page's head and stylesheet, the merch page's text hero (`.merch-hero`, so the site keeps its two hero treatments rather than gaining a third), and a reading block (`.legal`). The share card is the home page's (`share-bobby-guitar.jpg`), since the page has no picture of its own. What it says, each from the code:
