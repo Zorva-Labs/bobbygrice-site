@@ -62,6 +62,7 @@
     "notes": ""
   },
   "geo": null,
+  "geoNote": "No geo-gate: GEO_ALLOW is empty on purpose, so the site keeps its audience outside the US (set with /traffic, 2026-09-17; CLAUDE.md → Forms, mail, tracking).",
   "launched": "2026-05-15",
   "built": "2026-05-15",
   "updated": "2026-10-09",
