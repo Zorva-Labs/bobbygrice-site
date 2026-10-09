@@ -41,10 +41,20 @@ for (const f of FILES) {
   fs.copyFileSync(from, path.join(OUT, f));
   n++;
 }
+/* images/ holds the originals (multi-megabyte PNGs and JPGs) beside the
+   responsive WebP/AVIF copies scripts/images.py makes from them. Only a
+   picture some page, manifest, script or schema names ships; the rest stay in
+   the repo as sources (2026-10-09: the 2.6 MB and 2.4 MB GRT scans and the
+   1.1 MB hero PNG were in dist/ and answered 200). */
+const PUBLIC_TEXT = [...FILES, ...fs.readdirSync(path.join(ROOT, 'assets/js')).map((f) => `assets/js/${f}`)]
+  .filter((f) => /\.(html|json|txt|xml|js|css)$/.test(f))
+  .map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');
+const unused = [];
 const copyDir = (rel) => {
   for (const e of fs.readdirSync(path.join(ROOT, rel), { withFileTypes: true })) {
     const r = `${rel}/${e.name}`;
     if (PRIVATE(e.isDirectory() ? `${r}/` : r)) continue;
+    if (rel === 'images' && !e.isDirectory() && !PUBLIC_TEXT.includes(`images/${e.name}`)) { unused.push(e.name); continue; }
     if (e.isDirectory()) { copyDir(r); continue; }
     fs.mkdirSync(path.join(OUT, rel), { recursive: true });
     fs.copyFileSync(path.join(ROOT, r), path.join(OUT, r));
@@ -52,7 +62,17 @@ const copyDir = (rel) => {
   }
 };
 for (const d of DIRS) copyDir(d);
-console.log(`  dist/ built: ${n} files`);
+console.log(`  dist/ built: ${n} files${unused.length ? ` (${unused.length} image(s) no page names left out)` : ''}`);
+
+/* The footer's copyright year is the build's year, never a hand-typed one
+   (it said 2024 until 2026-10-09). */
+const YEAR = String(new Date().getFullYear());
+for (const f of fs.readdirSync(OUT).filter((x) => x.endsWith('.html'))) {
+  const file = path.join(OUT, f);
+  const h = fs.readFileSync(file, 'utf8');
+  const out = h.replace(/(<span data-year>)\d{4}(<\/span>)/g, `$1${YEAR}$2`);
+  if (out !== h) fs.writeFileSync(file, out);
+}
 
 /* Every local file a page, stylesheet or manifest names should be in dist/ —
    one left off the list is a broken page — so any that is not gets named.

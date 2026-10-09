@@ -3,20 +3,14 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM5M8NEW51"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FM5M8NEW51');
-  </script>
+  <!-- GA4: assets/js/ga4.js loads Google's tag at the first tap, key or scroll -->
+  <script src="/assets/js/ga4.js" data-ga4="G-FM5M8NEW51" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
 
   <!-- Primary SEO -->
-  <title>Merch | Bobby G. Rice — Albums &amp; Autographed CDs</title>
-  <meta name="description" content="Shop Bobby G. Rice merchandise — autographed CDs of Then and Now, Legend, and Bobby's Best. Free shipping in the USA. Albums can be personalized to the recipient of your choosing.">
+  <title>Bobby G. Rice Merch | Albums &amp; Autographed CDs</title>
+  <meta name="description" content="Autographed CDs from Bobby G. Rice: Legacy Edition (25 tracks, $19.99), Then and Now and more. Free shipping in the USA, signed to whoever you name.">
   <meta name="keywords" content="Bobby G Rice merch, Bobby G Rice CDs, Then and Now CD, Legend album, Bobby's Best, autographed country music CDs">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.bobbygrice.com/merch">
@@ -54,51 +48,154 @@
 
   <!-- Structured data: Products -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Product",
-        "name": "Then and Now",
-        "description": "14-track CD by Bobby G. Rice. Includes the #1 hit \"You Lay So Easy On My Mind.\" Autographed and personalized.",
-        "image": "https://www.bobbygrice.com/images/album-then-and-now.jpg",
-        "brand": { "@type": "Brand", "name": "Bobby G. Rice" },
-        "offers": { "@type": "Offer", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.bobbygrice.com/merch" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.bobbygrice.com/merch#webpage",
+      "url": "https://www.bobbygrice.com/merch",
+      "name": "Bobby G. Rice Merch | Albums & Autographed CDs",
+      "description": "Autographed CDs from Bobby G. Rice: Legacy Edition (25 tracks, $19.99), Then and Now and more. Free shipping in the USA, signed to whoever you name.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.bobbygrice.com/#website",
+        "url": "https://www.bobbygrice.com/",
+        "name": "Bobby G. Rice"
       },
-      {
-        "@type": "Product",
-        "name": "Legend",
-        "description": "15-track CD by Bobby G. Rice. Career-spanning collection of his greatest hits.",
-        "image": "https://www.bobbygrice.com/images/album-legend.jpg",
-        "brand": { "@type": "Brand", "name": "Bobby G. Rice" },
-        "offers": { "@type": "Offer", "price": "19.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.bobbygrice.com/merch" }
+      "about": {
+        "@type": "Person",
+        "@id": "https://www.bobbygrice.com/#person",
+        "name": "Bobby G. Rice"
       },
-      {
-        "@type": "Product",
-        "name": "Bobby's Best",
-        "description": "12-track CD featuring some of Bobby G. Rice's classic recordings.",
-        "image": "https://www.bobbygrice.com/images/album-bobbys-best.jpg",
-        "brand": { "@type": "Brand", "name": "Bobby G. Rice" },
-        "offers": { "@type": "Offer", "price": "14.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.bobbygrice.com/merch" }
+      "breadcrumb": {
+        "@id": "https://www.bobbygrice.com/merch#breadcrumb"
       },
-      {
-        "@type": "Product",
-        "name": "Bobby G. Rice 50th Anniversary Hat",
-        "description": "Embroidered ball cap commemorating the 50th anniversary of \"You Lay So Easy On My Mind.\" Available in 7 colors. Can be autographed.",
-        "image": "https://www.bobbygrice.com/images/hat-white.jpg",
-        "brand": { "@type": "Brand", "name": "Bobby G. Rice" },
-        "offers": { "@type": "Offer", "price": "25.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.bobbygrice.com/merch" }
+      "inLanguage": "en-US",
+      "dateModified": "2026-10-09"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.bobbygrice.com/merch#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bobbygrice.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Merch",
+          "item": "https://www.bobbygrice.com/merch"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Legacy Edition",
+      "description": "25-track CD by Bobby G. Rice, including \"You Lay So Easy On My Mind,\" \"Write Me A Letter\" and \"What Goes Through Your Mind.\" Free shipping in the USA.",
+      "image": "https://www.bobbygrice.com/images/album-legacy-front-1200.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bobby G. Rice"
       },
-      {
-        "@type": "Product",
-        "name": "Bobby G. Rice 50th Anniversary Koozie",
-        "description": "Drink koozie commemorating the 50th anniversary of \"You Lay So Easy On My Mind.\" Can be autographed.",
-        "image": "https://www.bobbygrice.com/images/koozie.jpg",
-        "brand": { "@type": "Brand", "name": "Bobby G. Rice" },
-        "offers": { "@type": "Offer", "price": "5.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.bobbygrice.com/merch" }
+      "offers": {
+        "@type": "Offer",
+        "price": "19.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.bobbygrice.com/merch"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Product",
+      "name": "Then and Now",
+      "description": "14-track CD by Bobby G. Rice. Includes the #1 hit \"You Lay So Easy On My Mind.\" Autographed and personalized.",
+      "image": "https://www.bobbygrice.com/images/album-then-and-now-600.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bobby G. Rice"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "19.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.bobbygrice.com/merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Legend",
+      "description": "15-track CD by Bobby G. Rice. Career-spanning collection of his greatest hits.",
+      "image": "https://www.bobbygrice.com/images/album-legend-600.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bobby G. Rice"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "19.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.bobbygrice.com/merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Bobby's Best",
+      "description": "12-track CD featuring some of Bobby G. Rice's classic recordings.",
+      "image": "https://www.bobbygrice.com/images/album-bobbys-best-600.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bobby G. Rice"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "14.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.bobbygrice.com/merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Bobby G. Rice 50th Anniversary Hat",
+      "description": "Embroidered ball cap commemorating the 50th anniversary of \"You Lay So Easy On My Mind.\" Available in 7 colors. Can be autographed.",
+      "image": "https://www.bobbygrice.com/images/hat-white-800.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bobby G. Rice"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "25.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.bobbygrice.com/merch"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Bobby G. Rice 50th Anniversary Koozie",
+      "description": "Drink koozie commemorating the 50th anniversary of \"You Lay So Easy On My Mind.\" Can be autographed.",
+      "image": "https://www.bobbygrice.com/images/koozie-800.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bobby G. Rice"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "5.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.bobbygrice.com/merch"
+      }
+    }
+  ]
+}
   </script>
 
   <style>
@@ -450,6 +547,75 @@
     }
 
     /* ===== HOW TO ORDER SECTION ===== */
+    /* ===== FAQ ===== */
+    .faq {
+      position: relative; z-index: 1;
+      padding: 100px 60px;
+    }
+    .faq-head { text-align: center; margin-bottom: 50px; }
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .faq-q {
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 4px;
+      background: none;
+      border: 0;
+      color: #f5f0e8;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .faq-q::after {
+      content: '+';
+      flex: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: #c9a84c;
+      transition: transform 0.3s;
+    }
+    .faq-q:hover,
+    .faq-item.open .faq-q { color: #c9a84c; }
+    .faq-q:focus-visible { outline: 2px solid #c9a84c; outline-offset: 4px; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    /* Collapsed only once the script has run, so the answers read without it. */
+    .faq-list.is-ready .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-a-inner {
+      padding: 0 48px 28px 4px;
+    }
+    .faq-a-inner p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(245, 240, 232, 0.8);
+    }
+    .faq-a-inner a {
+      color: #c9a84c;
+    }
+
+    @media (max-width: 768px) {
+      .faq { padding: 60px 20px; }
+      .faq-q { font-size: 1.1rem; padding: 20px 2px; gap: 16px; }
+      .faq-a-inner { padding: 0 2px 22px; }
+      .faq-a-inner p { font-size: 1.05rem; }
+    }
     .how-to-order {
       background: linear-gradient(180deg, #0a0a0a 0%, #0f0d08 50%, #0a0a0a 100%);
       padding: 90px 60px;
@@ -617,7 +783,7 @@
       <!-- Legacy Edition (New Release) -->
       <article class="product-card reveal">
         <div class="product-image-wrap">
-          <img src="images/album-legacy-front.jpg" alt="Bobby G. Rice - Legacy Edition album cover">
+          <img fetchpriority="high" src="images/album-legacy-front-800.webp" srcset="images/album-legacy-front-400.webp 400w, images/album-legacy-front-800.webp 800w, images/album-legacy-front-1200.webp 1200w" sizes="(max-width: 768px) 90vw, 400px" width="1200" height="1200" alt="Bobby G. Rice - Legacy Edition album cover">
         </div>
         <h3 class="product-name">Legacy Edition</h3>
         <p class="product-format">CD &bull; 25 Tracks</p>
@@ -664,7 +830,7 @@
       <!-- Then and Now -->
       <article class="product-card reveal reveal-delay-1">
         <div class="product-image-wrap">
-          <img src="images/album-then-and-now.jpg" alt="Bobby G. Rice - Then and Now album cover">
+          <img loading="lazy" decoding="async" src="images/album-then-and-now-600.webp" srcset="images/album-then-and-now-300.webp 300w, images/album-then-and-now-600.webp 600w" sizes="(max-width: 768px) 90vw, 400px" width="600" height="620" alt="Bobby G. Rice - Then and Now album cover">
         </div>
         <h3 class="product-name">Then and Now</h3>
         <p class="product-format">CD &bull; 14 Tracks</p>
@@ -717,7 +883,7 @@
       <!-- Legend -->
       <article class="product-card reveal reveal-delay-1">
         <div class="product-image-wrap">
-          <img src="images/album-legend.jpg" alt="Bobby G. Rice - Legend album cover">
+          <img loading="lazy" decoding="async" src="images/album-legend-600.webp" srcset="images/album-legend-300.webp 300w, images/album-legend-600.webp 600w" sizes="(max-width: 768px) 90vw, 400px" width="600" height="534" alt="Bobby G. Rice - Legend album cover">
         </div>
         <h3 class="product-name">Legend</h3>
         <p class="product-format">CD &bull; 15 Tracks</p>
@@ -771,7 +937,7 @@
       <!-- Bobby's Best -->
       <article class="product-card reveal reveal-delay-2">
         <div class="product-image-wrap">
-          <img src="images/album-bobbys-best.jpg" alt="Bobby G. Rice - Bobby's Best album cover">
+          <img loading="lazy" decoding="async" src="images/album-bobbys-best-600.webp" srcset="images/album-bobbys-best-300.webp 300w, images/album-bobbys-best-600.webp 600w" sizes="(max-width: 768px) 90vw, 400px" width="600" height="596" alt="Bobby G. Rice - Bobby's Best album cover">
         </div>
         <h3 class="product-name">Bobby's Best</h3>
         <p class="product-format">CD &bull; 12 Tracks</p>
@@ -822,7 +988,7 @@
       <!-- 50th Anniversary Hat -->
       <article class="product-card reveal">
         <div class="product-image-wrap">
-          <img src="images/hat-white.jpg" alt="Bobby G. Rice 50th Anniversary embroidered hat - You Lay So Easy On My Mind">
+          <img loading="lazy" decoding="async" src="images/hat-white-800.webp" srcset="images/hat-white-400.webp 400w, images/hat-white-800.webp 800w" sizes="(max-width: 768px) 90vw, 400px" width="800" height="800" alt="Bobby G. Rice 50th Anniversary embroidered hat - You Lay So Easy On My Mind">
         </div>
         <h3 class="product-name">50th Anniversary Hat</h3>
         <p class="product-format">Embroidered Ball Cap</p>
@@ -872,7 +1038,7 @@
       <!-- 50th Anniversary Koozie -->
       <article class="product-card reveal reveal-delay-1">
         <div class="product-image-wrap">
-          <img src="images/koozie.jpg" alt="Bobby G. Rice 50th Anniversary koozie">
+          <img loading="lazy" decoding="async" src="images/koozie-800.webp" srcset="images/koozie-400.webp 400w, images/koozie-800.webp 800w" sizes="(max-width: 768px) 90vw, 400px" width="800" height="800" alt="Bobby G. Rice 50th Anniversary koozie">
         </div>
         <h3 class="product-name">50th Anniversary Koozie</h3>
         <p class="product-format">Drink Koozie</p>
@@ -937,11 +1103,43 @@
     </div>
   </section>
 
+  <!-- FAQ: this accordion is the page's one FAQ list; build.mjs writes the FAQ schema from it, word for word -->
+  <section class="faq" id="faq">
+    <div class="faq-head reveal">
+      <p class="section-eyebrow">Before You Order</p>
+      <h2 class="section-title">Merch Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-1" aria-controls="faq-a-1">How much is the Legacy Edition CD?</button>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div class="faq-a-inner"><p>$19.99, and it ships free anywhere in the USA. PayPal runs the checkout, so you can pay from a PayPal account or with a credit or debit card and no account at all.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-2" aria-controls="faq-a-2">Can I have a CD autographed to someone?</button>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner"><p>Yes. Every CD here can be signed and personalized to the person you name: type the name in the &quot;Autograph to&quot; box before you click Buy Now. Bobby signs the order himself and mails it to your door.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-3" aria-controls="faq-a-3">How many songs are on Legacy Edition?</button>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div class="faq-a-inner"><p>Twenty-five, from &quot;Write Me A Letter&quot; and &quot;You Lay So Easy On My Mind&quot; to &quot;Sugar Shack,&quot; &quot;What Goes Through Your Mind&quot; and &quot;You Make It So Easy.&quot; The full track list is printed on the album&#39;s card above.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-4" aria-controls="faq-a-4">Where can I stream Legacy Edition?</button>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div class="faq-a-inner"><p>On Spotify, Apple Music, YouTube and Amazon Music. The links sit beside the album on the <a href="/#new-album">home page</a>.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-5" aria-controls="faq-a-5">What does shipping cost on the hat and koozie?</button>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-a-inner"><p>The 50th anniversary hat is $25.00 plus $6.00 shipping, and the koozie is $5.00 plus $3.00. The CDs carry no shipping charge in the USA.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="golden-divider"></div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">Bobby G. Rice</div>
     <div class="footer-text">
-      &copy; 2024 Bobby G. Rice. All rights reserved.
+      &copy; <span data-year>2026</span> Bobby G. Rice. All rights reserved.
       <div class="footer-credit"><a href="https://nashvilleswebdesign.com" target="_blank" rel="nofollow noopener">Web Design, SEO and Hosting by Nashville's Web Design</a></div>
     </div>
     <div class="footer-links">
@@ -1020,6 +1218,22 @@
     setTimeout(() => {
       document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
     }, 2000);
+  
+    // FAQ accordion: the answers stay open until this runs (.is-ready collapses them)
+    document.querySelectorAll('.faq-list').forEach(list => list.classList.add('is-ready'));
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.setAttribute('aria-expanded', 'false');
+      q.addEventListener('click', () => {
+        const open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open ? 'true' : 'false');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : null;
+      });
+    });
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.faq-item.open .faq-a').forEach(a => { a.style.maxHeight = a.scrollHeight + 'px'; });
+    });
   </script>
 <script src="/assets/js/traffic-beacons.js" defer></script>
 </body>

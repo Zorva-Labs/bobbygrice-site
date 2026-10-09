@@ -3,21 +3,15 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM5M8NEW51"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FM5M8NEW51');
-  </script>
+  <!-- GA4: assets/js/ga4.js loads Google's tag at the first tap, key or scroll -->
+  <script src="/assets/js/ga4.js" data-ga4="G-FM5M8NEW51" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
   <meta name="format-detection" content="telephone=no">
 
   <!-- Primary SEO -->
-  <title>About Bobby G. Rice | Country Music Legend Biography</title>
-  <meta name="description" content="The biography of Bobby G. Rice — legendary country music singer-songwriter from Boscobel, Wisconsin. 30 Billboard charted singles, CMA nominations, Grand Ole Opry performances, and the #1 hit &quot;You Lay So Easy On My Mind.&quot;">
+  <title>Bobby Rice (Bobby G. Rice) Biography | Country Music Legend</title>
+  <meta name="description" content="The story of Bobby G. Rice, known as Bobby Rice: from his family&#39;s radio show in Wisconsin to 30 Billboard chart hits, CMA nominations and the Grand Ole Opry.">
   <meta name="keywords" content="Bobby G Rice biography, Bobby G. Rice bio, country music history, You Lay So Easy On My Mind, CMA 1973, Grand Ole Opry, Boscobel Wisconsin, country music legend">
   <meta name="author" content="Bobby G. Rice">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -27,7 +21,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://www.bobbygrice.com/bio">
-  <meta property="og:title" content="About Bobby G. Rice | Country Music Legend Biography">
+  <meta property="og:title" content="Bobby Rice (Bobby G. Rice) Biography | Country Music Legend">
   <meta property="og:description" content="Legendary country music singer-songwriter with 30 Billboard charted singles, CMA nominations, and over four decades of entertaining.">
   <meta property="og:image" content="https://www.bobbygrice.com/images/share-about-bobby.jpg">
   <meta property="og:image:secure_url" content="https://www.bobbygrice.com/images/share-about-bobby.jpg">
@@ -43,7 +37,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.bobbygrice.com/bio">
-  <meta name="twitter:title" content="About Bobby G. Rice | Country Music Legend">
+  <meta name="twitter:title" content="Bobby Rice (Bobby G. Rice) Biography | Country Music Legend">
   <meta name="twitter:description" content="30 Billboard Charted Singles. CMA Nominated. Over four decades of legendary country music.">
   <meta name="twitter:image" content="https://www.bobbygrice.com/images/share-about-bobby.jpg">
   <meta name="twitter:image:alt" content="Bobby G. Rice, arms folded, in an embroidered white western shirt">
@@ -59,59 +53,101 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <!-- Schema.org structured data -->
+  <!-- Schema.org structured data: one graph; the FAQPage is written into dist/ by build.mjs from the accordion -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://www.bobbygrice.com/bio#person",
-    "name": "Bobby G. Rice",
-    "alternateName": "Bobby G Rice",
-    "jobTitle": "Country Music Singer-Songwriter",
-    "description": "Legendary country music singer-songwriter with 30 Billboard charted singles, CMA nominations, and over four decades of entertaining.",
-    "url": "https://www.bobbygrice.com/bio",
-    "image": "https://www.bobbygrice.com/images/bio-bobby.png",
-    "birthPlace": {
-      "@type": "Place",
-      "name": "Boscobel, Wisconsin, USA"
-    },
-    "knowsAbout": ["Country Music", "Songwriting", "Singing", "Live Performance"],
-    "award": [
-      "CMA Nomination - Male Vocalist of the Year (1973)",
-      "CMA Nomination - Single of the Year (1973)",
-      "CMA Nomination - Album of the Year (1973)",
-      "ASCAP Awards",
-      "SESAC Award"
-    ],
-    "performerIn": [
-      "Grand Ole Opry",
-      "The Louisiana Hayride",
-      "WWVA Wheeling Jamboree",
-      "Music Country USA (NBC)",
-      "Nashville Now"
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.bobbygrice.com/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.bobbygrice.com/bio#webpage",
+      "url": "https://www.bobbygrice.com/bio",
+      "name": "Bobby Rice (Bobby G. Rice) Biography | Country Music Legend",
+      "description": "The story of Bobby G. Rice, known as Bobby Rice: from his family's radio show in Wisconsin to 30 Billboard chart hits, CMA nominations and the Grand Ole Opry.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.bobbygrice.com/#website",
+        "url": "https://www.bobbygrice.com/",
+        "name": "Bobby G. Rice"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Bio",
-        "item": "https://www.bobbygrice.com/bio"
+      "about": {
+        "@id": "https://www.bobbygrice.com/#person"
+      },
+      "mainEntity": {
+        "@id": "https://www.bobbygrice.com/#person"
+      },
+      "breadcrumb": {
+        "@id": "https://www.bobbygrice.com/bio#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.bobbygrice.com/images/bio-bobby-500.webp",
+        "width": 500,
+        "height": 800
+      },
+      "inLanguage": "en-US",
+      "dateModified": "2026-10-09"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.bobbygrice.com/#person",
+      "name": "Bobby G. Rice",
+      "alternateName": [
+        "Bobby G Rice",
+        "Bobby Rice"
+      ],
+      "jobTitle": "Country Music Singer-Songwriter",
+      "description": "Legendary country music singer-songwriter with 30 Billboard charted singles, CMA nominations, and over four decades of entertaining.",
+      "url": "https://www.bobbygrice.com/bio",
+      "image": "https://www.bobbygrice.com/images/bio-bobby-500.webp",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Boscobel, Wisconsin, USA"
+      },
+      "knowsAbout": [
+        "Country Music",
+        "Songwriting",
+        "Singing",
+        "Live Performance"
+      ],
+      "award": [
+        "CMA Nomination - Male Vocalist of the Year (1973)",
+        "CMA Nomination - Single of the Year (1973)",
+        "CMA Nomination - Album of the Year (1973)",
+        "ASCAP Awards",
+        "SESAC Award"
+      ],
+      "performerIn": [
+        "Grand Ole Opry",
+        "The Louisiana Hayride",
+        "WWVA Wheeling Jamboree",
+        "Music Country USA (NBC)",
+        "Nashville Now"
+      ],
+      "memberOf": {
+        "@id": "https://www.bobbygrice.com/#musicgroup"
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bobbygrice.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bio",
+          "item": "https://www.bobbygrice.com/bio"
+        }
+      ],
+      "@id": "https://www.bobbygrice.com/bio#breadcrumb"
+    }
+  ]
+}
   </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -399,6 +435,75 @@
     }
     .acc-card ul li:last-child { border-bottom: none; }
 
+    /* ===== FAQ ===== */
+    .faq {
+      position: relative; z-index: 1;
+      padding: 100px 60px;
+    }
+    .faq-head { text-align: center; margin-bottom: 50px; }
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .faq-q {
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px 4px;
+      background: none;
+      border: 0;
+      color: #f5f0e8;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .faq-q::after {
+      content: '+';
+      flex: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: #c9a84c;
+      transition: transform 0.3s;
+    }
+    .faq-q:hover,
+    .faq-item.open .faq-q { color: #c9a84c; }
+    .faq-q:focus-visible { outline: 2px solid #c9a84c; outline-offset: 4px; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    /* Collapsed only once the script has run, so the answers read without it. */
+    .faq-list.is-ready .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-a-inner {
+      padding: 0 48px 28px 4px;
+    }
+    .faq-a-inner p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(245, 240, 232, 0.8);
+    }
+    .faq-a-inner a {
+      color: #c9a84c;
+    }
+
+    @media (max-width: 768px) {
+      .faq { padding: 60px 20px; }
+      .faq-q { font-size: 1.1rem; padding: 20px 2px; gap: 16px; }
+      .faq-a-inner { padding: 0 2px 22px; }
+      .faq-a-inner p { font-size: 1.05rem; }
+    }
     /* ===== NOTABLE RECORDINGS ===== */
     .notable {
       position: relative; z-index: 1;
@@ -586,7 +691,7 @@
     <div class="bio-hero-content">
       <div class="bio-hero-image">
         <div class="bio-hero-image-backlight"></div>
-        <img src="images/bio-bobby.png" alt="Bobby G. Rice">
+        <picture><source type="image/avif" srcset="images/bio-bobby-240.avif 240w, images/bio-bobby-320.avif 320w, images/bio-bobby-400.avif 400w, images/bio-bobby-500.avif 500w" sizes="(max-width: 768px) 240px, (max-width: 1024px) 320px, 400px"><img fetchpriority="high" src="images/bio-bobby-500.webp" srcset="images/bio-bobby-240.webp 240w, images/bio-bobby-320.webp 320w, images/bio-bobby-400.webp 400w, images/bio-bobby-500.webp 500w" sizes="(max-width: 768px) 240px, (max-width: 1024px) 320px, 400px" width="500" height="800" alt="Bobby G. Rice, arms folded, in an embroidered white western shirt"></picture>
         <div class="bio-hero-image-glow"></div>
       </div>
       <div class="bio-hero-text">
@@ -743,6 +848,34 @@
 
   <div class="golden-divider"></div>
 
+  <!-- FAQ: this accordion is the page's one FAQ list; build.mjs writes the FAQ schema from it, word for word -->
+  <section class="faq" id="faq">
+    <div class="faq-head reveal">
+      <p class="acc-eyebrow">Fans Ask</p>
+      <h2 class="acc-title">Questions About His Career</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-1" aria-controls="faq-a-1">How did Bobby G. Rice get started in music?</button>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div class="faq-a-inner"><p>As a child, singing on his family&#39;s own radio show in Wisconsin. His 1970 revivals of Jimmy Gilmore&#39;s &quot;Sugar Shack&quot; and Bruce Channel&#39;s &quot;Hey Baby&quot; took him past the state line, and his versions of &quot;Mountain Of Love&quot; and &quot;Suspicion&quot; came next.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-2" aria-controls="faq-a-2">Who else has recorded &quot;You Lay So Easy on My Mind&quot;?</button>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-a-inner"><p>Loretta Lynn, Conway Twitty, Roy Orbison, David Houston, Kitty Wells, Jerry Springer, Bill Anderson&#39;s Po&#39; Boys Band, Pat Boone and Andy Williams. Bobby wrote the song as well as singing it, so every one of those records is his song in another voice.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-3" aria-controls="faq-a-3">What TV and radio shows has Bobby G. Rice appeared on?</button>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div class="faq-a-inner"><p>The Grand Ole Opry, the Louisiana Hayride, the WWVA Wheeling Jamboree, the Ernest Tubb Midnite Jamboree, the Ralph Emery Show, Nashville Now, Music Country USA on NBC, The Bill Anderson TV Show, The Wilburn Brothers TV Show, The Ronnie Prophet TV Show out of Toronto, Midwest Country on RFD-TV, and Cheyenne Country and On Stage on TNN.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" id="faq-q-4" aria-controls="faq-a-4">Which of his songs made the Billboard Top 10?</button>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div class="faq-a-inner"><p>&quot;You Give Me You,&quot; &quot;Write Me A Letter&quot; and &quot;Freda Comes, Freda Goes.&quot; &quot;Pick Me Up On Your Way Down&quot; and &quot;My Special Angel&quot; charted too, alongside his remakes of &quot;Sugar Shack,&quot; &quot;Hey Baby&quot; and &quot;Mountain Of Love.&quot;</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="golden-divider"></div>
+
   <!-- CTA -->
   <section class="bio-cta">
     <div class="reveal">
@@ -755,7 +888,7 @@
   <footer class="footer">
     <div class="footer-logo">Bobby G. Rice</div>
     <div class="footer-text">
-      &copy; 2024 Bobby G. Rice. All rights reserved.
+      &copy; <span data-year>2026</span> Bobby G. Rice. All rights reserved.
       <div class="footer-credit"><a href="https://nashvilleswebdesign.com" target="_blank" rel="nofollow noopener">Web Design, SEO and Hosting by Nashville's Web Design</a></div>
     </div>
     <div class="footer-links">
@@ -819,6 +952,21 @@
       document.getElementById('hamburger').classList.remove('active');
     }
 
+    // FAQ accordion: the answers stay open until this runs (.is-ready collapses them)
+    document.querySelectorAll('.faq-list').forEach(list => list.classList.add('is-ready'));
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.setAttribute('aria-expanded', 'false');
+      q.addEventListener('click', () => {
+        const open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open ? 'true' : 'false');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : null;
+      });
+    });
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.faq-item.open .faq-a').forEach(a => { a.style.maxHeight = a.scrollHeight + 'px'; });
+    });
     // Scroll reveal — aggressive observer so nothing stays hidden
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

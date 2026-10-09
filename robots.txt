@@ -1,29 +1,49 @@
+# /traffic (the password-gated dashboard) and /api/ (its beacons) are private,
+# repeated in every group: a crawler named in its own group ignores the * group.
 User-agent: *
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 # AI crawlers — welcome
 User-agent: GPTBot
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: CCBot
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /traffic
+Disallow: /api/
 
 Sitemap: https://www.bobbygrice.com/sitemap.xml

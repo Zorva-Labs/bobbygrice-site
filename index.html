@@ -3,22 +3,16 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM5M8NEW51"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FM5M8NEW51');
-  </script>
+  <!-- GA4: assets/js/ga4.js loads Google's tag at the first tap, key or scroll -->
+  <script src="/assets/js/ga4.js" data-ga4="G-FM5M8NEW51" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
   <meta name="format-detection" content="telephone=no">
 
   <!-- Primary SEO -->
-  <title>Bobby G. Rice — Country Singer · 30 Billboard Hits · CMA</title>
-  <meta name="description" content="Bobby G. Rice — country singer-songwriter, 30 Billboard charted singles, two-time CMA nominee, home of the #1 hit &quot;You Lay So Easy On My Mind.&quot;">
-  <meta name="keywords" content="Bobby G Rice, Bobby G. Rice, country music, country music artist, singer songwriter, You Lay So Easy On My Mind, Nashville, Grand Ole Opry, CMA, country music legend, 70s country, classic country, Then and Now album">
+  <title>Bobby G. Rice (Bobby Rice) | Country Singer &amp; Songwriter</title>
+  <meta name="description" content="Official site of Bobby G. Rice (Bobby Rice), country singer-songwriter from Boscobel, Wisconsin: 30 Billboard charted singles, two-time CMA nominee.">
+  <meta name="keywords" content="Bobby Rice, Bobby G Rice, Bobby G. Rice, country music, country music artist, singer songwriter, You Lay So Easy On My Mind, Nashville, Grand Ole Opry, CMA, country music legend, 70s country, classic country, Then and Now album">
   <meta name="author" content="Bobby G. Rice">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
@@ -27,7 +21,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.bobbygrice.com/">
-  <meta property="og:title" content="Bobby G. Rice | Legendary Country Music Artist">
+  <meta property="og:title" content="Bobby G. Rice (Bobby Rice) | Legendary Country Music Artist">
   <meta property="og:description" content="30 Billboard Charted Singles. CMA Nominated. Over four decades of legendary country music. Home of the #1 hit &quot;You Lay So Easy On My Mind.&quot;">
   <meta property="og:image" content="https://www.bobbygrice.com/images/share-bobby-guitar.jpg">
   <meta property="og:image:secure_url" content="https://www.bobbygrice.com/images/share-bobby-guitar.jpg">
@@ -41,7 +35,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.bobbygrice.com/">
-  <meta name="twitter:title" content="Bobby G. Rice | Legendary Country Music Artist">
+  <meta name="twitter:title" content="Bobby G. Rice (Bobby Rice) | Legendary Country Music Artist">
   <meta name="twitter:description" content="30 Billboard Charted Singles. CMA Nominated. Over four decades of legendary country music.">
   <meta name="twitter:image" content="https://www.bobbygrice.com/images/share-bobby-guitar.jpg">
   <meta name="twitter:image:alt" content="Bobby G. Rice with his Yamaha guitar">
@@ -50,7 +44,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="preload" as="image" type="image/avif" href="/images/hero-bobby.avif" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" imagesrcset="/images/hero-bobby-300.avif 300w, /images/hero-bobby-450.avif 450w, /images/hero-bobby-600.avif 600w, /images/hero-bobby-900.avif 900w" imagesizes="(max-width: 480px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 350px, 500px" fetchpriority="high">
   <link rel="manifest" href="/manifest.json">
 
   <!-- Fonts (preconnect for perf) -->
@@ -58,114 +52,204 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <!-- Schema.org structured data -->
+  <!-- Schema.org structured data: one graph; the FAQPage is written into dist/ by build.mjs from the accordion -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "@id": "https://www.bobbygrice.com/#musicgroup",
-    "name": "Bobby G. Rice",
-    "alternateName": "Bobby G Rice",
-    "description": "Legendary country music singer-songwriter with 30 Billboard charted singles and CMA nominations. Best known for the #1 hit \"You Lay So Easy On My Mind.\"",
-    "url": "https://www.bobbygrice.com/",
-    "image": "https://www.bobbygrice.com/images/hero-bobby.png",
-    "logo": "https://www.bobbygrice.com/images/icon-192.png",
-    "genre": ["Country", "Classic Country", "Country Pop"],
-    "foundingLocation": {
-      "@type": "Place",
-      "name": "Boscobel, Wisconsin, USA"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.bobbygrice.com/#organization",
+      "name": "Bobby G. Rice",
+      "url": "https://www.bobbygrice.com/",
+      "logo": "https://www.bobbygrice.com/images/icon-192.png"
     },
-    "award": [
-      "CMA Nomination - Male Vocalist of the Year (1973)",
-      "CMA Nomination - Single of the Year (1973)",
-      "CMA Nomination - Album of the Year (1973)",
-      "CMA/CRS New Faces Artist (1971)",
-      "ASCAP Awards",
-      "SESAC Award"
-    ],
-    "album": [
-      {
-        "@type": "MusicAlbum",
-        "name": "Legacy Edition",
-        "byArtist": { "@type": "MusicGroup", "name": "Bobby G. Rice" },
-        "numTracks": 25
-      },
-      {
-        "@type": "MusicAlbum",
-        "name": "Then and Now",
-        "byArtist": { "@type": "MusicGroup", "name": "Bobby G. Rice" }
-      },
-      {
-        "@type": "MusicAlbum",
-        "name": "Legend",
-        "byArtist": { "@type": "MusicGroup", "name": "Bobby G. Rice" }
-      },
-      {
-        "@type": "MusicAlbum",
-        "name": "Bobby's Best",
-        "byArtist": { "@type": "MusicGroup", "name": "Bobby G. Rice" }
-      },
-      {
-        "@type": "MusicAlbum",
-        "name": "You Lay So Easy on My Mind",
-        "byArtist": { "@type": "MusicGroup", "name": "Bobby G. Rice" }
-      }
-    ],
-    "track": [
-      { "@type": "MusicRecording", "name": "You Lay So Easy On My Mind" },
-      { "@type": "MusicRecording", "name": "You Give Me You" },
-      { "@type": "MusicRecording", "name": "Write Me A Letter" },
-      { "@type": "MusicRecording", "name": "Freda Comes, Freda Goes" },
-      { "@type": "MusicRecording", "name": "Mountain Of Love" },
-      { "@type": "MusicRecording", "name": "Sugar Shack" }
-    ],
-    "sameAs": [
-      "https://www.youtube.com/results?search_query=Bobby+G+Rice"
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
+    {
+      "@type": "WebSite",
+      "creator": {
         "@type": "Organization",
-        "@id": "https://www.bobbygrice.com/#organization",
-        "name": "Bobby G. Rice",
-        "url": "https://www.bobbygrice.com/",
-        "logo": "https://www.bobbygrice.com/images/icon-192.png",
-        "sameAs": ["https://www.youtube.com/results?search_query=Bobby+G+Rice"]
+        "name": "Nashville's Web Design",
+        "url": "https://nashvilleswebdesign.com"
       },
-      {
-        "@type": "WebSite","creator":{"@type":"Organization","name":"Nashville's Web Design","url":"https://nashvilleswebdesign.com"},"provider":{"@type":"Organization","name":"Nashville's Web Design","url":"https://nashvilleswebdesign.com"},
-        "@id": "https://www.bobbygrice.com/#website",
-        "url": "https://www.bobbygrice.com/",
-        "name": "Bobby G. Rice",
-        "description": "Official website of country music legend Bobby G. Rice",
-        "publisher": { "@id": "https://www.bobbygrice.com/#organization" },
-        "inLanguage": "en-US"
+      "provider": {
+        "@type": "Organization",
+        "name": "Nashville's Web Design",
+        "url": "https://nashvilleswebdesign.com"
       },
-      {
-        "@type": "Person",
-        "@id": "https://www.bobbygrice.com/#person",
-        "name": "Bobby G. Rice",
-        "jobTitle": "Country Singer-Songwriter",
-        "birthPlace": { "@type": "Place", "name": "Boscobel, Wisconsin, USA" },
-        "url": "https://www.bobbygrice.com/",
-        "image": "https://www.bobbygrice.com/images/hero-bobby.png",
-        "sameAs": ["https://www.youtube.com/results?search_query=Bobby+G+Rice"]
+      "@id": "https://www.bobbygrice.com/#website",
+      "url": "https://www.bobbygrice.com/",
+      "name": "Bobby G. Rice",
+      "description": "Official website of country music legend Bobby G. Rice",
+      "publisher": {
+        "@id": "https://www.bobbygrice.com/#organization"
       },
-      {
-        "@type": "WebPage",
-        "url": "https://www.bobbygrice.com/",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": ["h1", ".bio", ".hero p"]
-        }
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.bobbygrice.com/#person",
+      "name": "Bobby G. Rice",
+      "jobTitle": "Country Singer-Songwriter",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Boscobel, Wisconsin, USA"
+      },
+      "url": "https://www.bobbygrice.com/",
+      "image": "https://www.bobbygrice.com/images/hero-bobby-900.webp",
+      "alternateName": [
+        "Bobby G Rice",
+        "Bobby Rice"
+      ],
+      "memberOf": {
+        "@id": "https://www.bobbygrice.com/#musicgroup"
       }
-    ]
-  }
+    },
+    {
+      "@type": "MusicGroup",
+      "@id": "https://www.bobbygrice.com/#musicgroup",
+      "name": "Bobby G. Rice",
+      "alternateName": [
+        "Bobby G Rice",
+        "Bobby Rice"
+      ],
+      "description": "Legendary country music singer-songwriter with 30 Billboard charted singles and CMA nominations. Best known for the #1 hit \"You Lay So Easy On My Mind.\"",
+      "url": "https://www.bobbygrice.com/",
+      "image": "https://www.bobbygrice.com/images/hero-bobby-900.webp",
+      "logo": "https://www.bobbygrice.com/images/icon-192.png",
+      "genre": [
+        "Country",
+        "Classic Country",
+        "Country Pop"
+      ],
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Boscobel, Wisconsin, USA"
+      },
+      "award": [
+        "CMA Nomination - Male Vocalist of the Year (1973)",
+        "CMA Nomination - Single of the Year (1973)",
+        "CMA Nomination - Album of the Year (1973)",
+        "CMA/CRS New Faces Artist (1971)",
+        "ASCAP Awards",
+        "SESAC Award"
+      ],
+      "album": [
+        {
+          "@type": "MusicAlbum",
+          "name": "Legacy Edition",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          },
+          "numTracks": 25
+        },
+        {
+          "@type": "MusicAlbum",
+          "name": "Then and Now",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicAlbum",
+          "name": "Legend",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicAlbum",
+          "name": "Bobby's Best",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicAlbum",
+          "name": "You Lay So Easy on My Mind",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        }
+      ],
+      "track": [
+        {
+          "@type": "MusicRecording",
+          "name": "You Lay So Easy On My Mind",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "You Give Me You",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "Write Me A Letter",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "Freda Comes, Freda Goes",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "Mountain Of Love",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "Sugar Shack",
+          "byArtist": {
+            "@id": "https://www.bobbygrice.com/#musicgroup"
+          }
+        }
+      ],
+      "member": {
+        "@id": "https://www.bobbygrice.com/#person"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.bobbygrice.com/#webpage",
+      "url": "https://www.bobbygrice.com/",
+      "name": "Bobby G. Rice (Bobby Rice) | Country Singer & Songwriter",
+      "description": "Official site of Bobby G. Rice (Bobby Rice), country singer-songwriter from Boscobel, Wisconsin: 30 Billboard charted singles, two-time CMA nominee.",
+      "isPartOf": {
+        "@id": "https://www.bobbygrice.com/#website"
+      },
+      "about": {
+        "@id": "https://www.bobbygrice.com/#person"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.bobbygrice.com/images/hero-bobby-900.webp",
+        "width": 900,
+        "height": 900
+      },
+      "inLanguage": "en-US",
+      "dateModified": "2026-10-09",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-tagline",
+          ".about-text p"
+        ]
+      }
+    }
+  ]
+}
   </script>
   <style>
     /* ===== RESET & BASE ===== */
@@ -529,6 +613,7 @@
       color: #c9a84c;
       margin-bottom: 25px;
     }
+    .about-more a { display: inline-block; padding: 10px 0; color: #c9a84c; font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 1.1rem; }
     .about-text p {
       font-size: 1.15rem;
       color: rgba(245, 240, 232, 0.8);
@@ -1490,7 +1575,7 @@
 
   <!-- Navigation -->
   <nav class="nav" id="navbar">
-    <a href="#" class="nav-logo">Bobby G. Rice</a>
+    <a href="/" class="nav-logo">Bobby G. Rice</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/" onclick="closeMenu()">Home</a></li>
       <li><a href="/bio" onclick="closeMenu()">Bio</a></li>
@@ -1516,8 +1601,8 @@
       <div class="hero-image-container">
         <div class="hero-image-backlight"></div>
         <picture>
-          <source srcset="images/hero-bobby.avif" type="image/avif">
-          <img src="images/hero-bobby.png" alt="Bobby G. Rice performing with guitar" class="hero-image" width="900" height="900" fetchpriority="high" decoding="async">
+          <source type="image/avif" srcset="images/hero-bobby-300.avif 300w, images/hero-bobby-450.avif 450w, images/hero-bobby-600.avif 600w, images/hero-bobby-900.avif 900w" sizes="(max-width: 480px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 350px, 500px">
+          <img fetchpriority="high" src="images/hero-bobby-600.webp" srcset="images/hero-bobby-300.webp 300w, images/hero-bobby-450.webp 450w, images/hero-bobby-600.webp 600w, images/hero-bobby-900.webp 900w" sizes="(max-width: 480px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 350px, 500px" width="900" height="900" alt="Bobby G. Rice performing with guitar" class="hero-image">
         </picture>
         <div class="hero-image-glow"></div>
       </div>
@@ -1547,11 +1632,11 @@
   <section class="album" id="new-album">
     <div class="album-inner">
       <div class="album-art reveal">
-        <button type="button" class="album-cover" onclick="openAlbumLightbox('images/album-legacy-front.jpg', 'Bobby G. Rice — Legacy Edition album cover')" aria-label="Expand the Legacy Edition album cover">
-          <img loading="lazy" decoding="async" src="images/album-legacy-front.jpg" alt="Bobby G. Rice — Legacy Edition album cover" width="1200" height="1200">
+        <button type="button" class="album-cover" onclick="openAlbumLightbox('images/album-legacy-front-1200.webp', 'Bobby G. Rice — Legacy Edition album cover')" aria-label="Expand the Legacy Edition album cover">
+          <img loading="lazy" decoding="async" src="images/album-legacy-front-800.webp" srcset="images/album-legacy-front-400.webp 400w, images/album-legacy-front-800.webp 800w, images/album-legacy-front-1200.webp 1200w" sizes="(max-width: 768px) 42vw, 300px" width="1200" height="1200" alt="Bobby G. Rice — Legacy Edition album cover">
         </button>
-        <button type="button" class="album-cover" onclick="openAlbumLightbox('images/album-legacy-back.jpg', 'Bobby G. Rice — Legacy Edition track list, 25 songs')" aria-label="Expand the Legacy Edition track list">
-          <img loading="lazy" decoding="async" src="images/album-legacy-back.jpg" alt="Bobby G. Rice — Legacy Edition track list, 25 songs" width="1200" height="1200">
+        <button type="button" class="album-cover" onclick="openAlbumLightbox('images/album-legacy-back-1200.webp', 'Bobby G. Rice — Legacy Edition track list, 25 songs')" aria-label="Expand the Legacy Edition track list">
+          <img loading="lazy" decoding="async" src="images/album-legacy-back-800.webp" srcset="images/album-legacy-back-400.webp 400w, images/album-legacy-back-800.webp 800w, images/album-legacy-back-1200.webp 1200w" sizes="(max-width: 768px) 42vw, 300px" width="1200" height="1200" alt="Bobby G. Rice — Legacy Edition track list, 25 songs">
         </button>
       </div>
       <div class="album-info reveal reveal-delay-1">
@@ -1626,7 +1711,7 @@
     </div>
     <div class="about-grid">
       <div class="about-image-wrapper reveal">
-        <img loading="lazy" decoding="async" src="images/gallery-1.jpg" alt="Bobby G. Rice" class="about-image">
+        <img loading="lazy" decoding="async" src="images/gallery-1-900.webp" srcset="images/gallery-1-450.webp 450w, images/gallery-1-900.webp 900w" sizes="(max-width: 768px) 90vw, 450px" width="900" height="1100" alt="Bobby G. Rice on the steps of a green door, hands folded" class="about-image">
         <div class="about-image-frame"></div>
       </div>
       <div class="about-text reveal reveal-delay-1">
@@ -1637,6 +1722,7 @@
         </div>
         <p>The mild-mannered artist developed his passion for music as a child on his family's own radio show. His popularity quickly spread beyond his native state of Wisconsin with revivals of classic hits like "Sugar Shack" and "Hey Baby," followed by his versions of standards "Mountain Of Love" and "Suspicion."</p>
         <p>Rice earned CMA nominations for Single and Album of the Year, as well as Male Vocalist of the Year in 1973. His signature song, "You Lay So Easy on My Mind," was recorded by legends including Loretta Lynn, Conway Twitty, Roy Orbison, Pat Boone, and Andy Williams.</p>
+        <p class="about-more"><a href="/bio">Read the full biography of Bobby G. Rice</a></p>
       </div>
     </div>
   </section>
@@ -1786,79 +1872,79 @@
     <div class="gallery-grid">
       <!-- Col 1 flow: square, landscape, portrait, square -->
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-1.jpg" alt="Bobby G. Rice portrait by red door">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-1-800.webp" srcset="images/nashvilleweddingcollection-1-400.webp 400w, images/nashvilleweddingcollection-1-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="800" alt="Bobby G. Rice portrait by red door">
       </div>
       <div class="gallery-item vintage reveal">
-        <img loading="lazy" decoding="async" src="images/grt-records.jpg" alt="Bobby G. Rice at GRT Records">
+        <img loading="lazy" decoding="async" src="images/grt-records-800.webp" srcset="images/grt-records-400.webp 400w, images/grt-records-800.webp 800w, images/grt-records-1200.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="1200" height="935" alt="Bobby G. Rice at GRT Records">
         <span class="gallery-label">GRT &amp; Barnaby Records</span>
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-3.jpg" alt="Bobby G. Rice portrait">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-3-795.webp" srcset="images/nashvilleweddingcollection-3-400.webp 400w, images/nashvilleweddingcollection-3-795.webp 795w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="795" height="1200" alt="Bobby G. Rice with his acoustic guitar on the railroad tracks">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-9.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-9-800.webp" srcset="images/nashvilleweddingcollection-9-400.webp 400w, images/nashvilleweddingcollection-9-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="800" alt="Bobby G. Rice standing between the railroad tracks">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-16.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-16-800.webp" srcset="images/nashvilleweddingcollection-16-400.webp 400w, images/nashvilleweddingcollection-16-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="530" alt="Bobby G. Rice in black and white against a dark wall">
       </div>
       <div class="gallery-item vintage reveal">
-        <img loading="lazy" decoding="async" src="images/bobby-johnny-k.jpg" alt="Bobby G. Rice promotional photo">
+        <img loading="lazy" decoding="async" src="images/bobby-johnny-k-560.webp" srcset="images/bobby-johnny-k-280.webp 280w, images/bobby-johnny-k-560.webp 560w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="560" height="800" alt="Bobby G. Rice promotional photo">
         <span class="gallery-label">Bobby &amp; Johnny K</span>
       </div>
 
       <!-- Col 2 flow: portrait, landscape, square, portrait -->
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-6.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-6-795.webp" srcset="images/nashvilleweddingcollection-6-400.webp 400w, images/nashvilleweddingcollection-6-795.webp 795w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="795" height="1200" alt="Bobby G. Rice sitting on a rail in an embroidered western shirt">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/chart-number-1.jpg" alt="Bobby G. Rice #1 Billboard Chart">
+        <img loading="lazy" decoding="async" src="images/chart-number-1-863.webp" srcset="images/chart-number-1-430.webp 430w, images/chart-number-1-863.webp 863w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="863" height="1200" alt="Bobby G. Rice #1 Billboard Chart">
         <span class="gallery-label">#1 Billboard Chart</span>
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-7.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-7-800.webp" srcset="images/nashvilleweddingcollection-7-400.webp 400w, images/nashvilleweddingcollection-7-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="530" alt="Bobby G. Rice playing guitar as a freight train rolls past">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-4.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-4-800.webp" srcset="images/nashvilleweddingcollection-4-400.webp 400w, images/nashvilleweddingcollection-4-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="800" alt="Bobby G. Rice up close, guitar in hand, beside the rails">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-14.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-14-795.webp" srcset="images/nashvilleweddingcollection-14-400.webp 400w, images/nashvilleweddingcollection-14-795.webp 795w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="795" height="1200" alt="Bobby G. Rice leaning in a narrow brick alley under an evening sky">
       </div>
 
       <!-- Col 3 flow: landscape, portrait, landscape, portrait -->
       <div class="gallery-item vintage reveal">
-        <img loading="lazy" decoding="async" src="images/grt-show.jpg" alt="Bobby G. Rice live concert 1970s">
+        <img loading="lazy" decoding="async" src="images/grt-show-800.webp" srcset="images/grt-show-400.webp 400w, images/grt-show-800.webp 800w, images/grt-show-1200.webp 1200w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="1200" height="942" alt="Bobby G. Rice live concert 1970s">
         <span class="gallery-label">Live Concert &bull; 1970s</span>
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-8.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-8-795.webp" srcset="images/nashvilleweddingcollection-8-400.webp 400w, images/nashvilleweddingcollection-8-795.webp 795w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="795" height="1200" alt="Bobby G. Rice standing with his guitar under a blue sky by a train">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-11.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-11-800.webp" srcset="images/nashvilleweddingcollection-11-400.webp 400w, images/nashvilleweddingcollection-11-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="530" alt="Bobby G. Rice, arms folded, in a white western shirt at a green door">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-13.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-13-800.webp" srcset="images/nashvilleweddingcollection-13-400.webp 400w, images/nashvilleweddingcollection-13-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="530" alt="Bobby G. Rice in black, one hand on a white brick wall">
       </div>
 
       <!-- Col 4 flow: wide, square, portrait, landscape -->
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-2.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-2-800.webp" srcset="images/nashvilleweddingcollection-2-400.webp 400w, images/nashvilleweddingcollection-2-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="387" alt="Bobby G. Rice smiling beside a weathered red door">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-12.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-12-795.webp" srcset="images/nashvilleweddingcollection-12-400.webp 400w, images/nashvilleweddingcollection-12-795.webp 795w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="795" height="1200" alt="Bobby G. Rice seated on stone steps before a green door, wide shot">
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/cover-then-and-now.jpg" alt="Bobby G. Rice - Then and Now album cover">
+        <img loading="lazy" decoding="async" src="images/cover-then-and-now-773.webp" srcset="images/cover-then-and-now-400.webp 400w, images/cover-then-and-now-773.webp 773w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="773" height="800" alt="Bobby G. Rice - Then and Now album cover">
         <span class="gallery-label">Then and Now</span>
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-10.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-10-800.webp" srcset="images/nashvilleweddingcollection-10-400.webp 400w, images/nashvilleweddingcollection-10-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="800" alt="Bobby G. Rice strumming his guitar beside the tracks">
       </div>
       <div class="gallery-item vintage reveal">
-        <img loading="lazy" decoding="async" src="images/you-lay-so-easy-cover.jpg" alt="You Lay So Easy On My Mind promotional">
+        <img loading="lazy" decoding="async" src="images/you-lay-so-easy-cover-571.webp" srcset="images/you-lay-so-easy-cover-285.webp 285w, images/you-lay-so-easy-cover-571.webp 571w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="571" height="800" alt="You Lay So Easy On My Mind promotional">
         <span class="gallery-label">Jim Taylor Artist Agency</span>
       </div>
       <div class="gallery-item reveal">
-        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-15.jpg" alt="Bobby G. Rice">
+        <img loading="lazy" decoding="async" src="images/nashvilleweddingcollection-15-800.webp" srcset="images/nashvilleweddingcollection-15-400.webp 400w, images/nashvilleweddingcollection-15-800.webp 800w" sizes="(max-width: 480px) 400px, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 325px" width="800" height="530" alt="Bobby G. Rice, arms folded, beside an iron gate">
       </div>
     </div>
   </section>
@@ -2013,7 +2099,7 @@
   <footer class="footer">
     <div class="footer-logo">Bobby G. Rice</div>
     <div class="footer-text">
-      &copy; 2024 Bobby G. Rice. All rights reserved.
+      &copy; <span data-year>2026</span> Bobby G. Rice. All rights reserved.
       <div class="footer-credit"><a href="https://nashvilleswebdesign.com" target="_blank" rel="nofollow noopener">Web Design, SEO and Hosting by Nashville's Web Design</a></div>
     </div>
     <div class="footer-links">
