@@ -2,6 +2,13 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-10-11 (Search Console: shipping on the merch offers)
+- **Why:** Search Console's two emails of 2026-10-11 for bobbygrice.com. Merchant listings: the six Offers on /merch carry no `shippingDetails` and no `hasMerchantReturnPolicy`. Product snippets: the six Products carry no `review` and no `aggregateRating`. All four are non-critical. The client asked for nothing here.
+- **What:** each Offer now carries `shippingDetails` (OfferShippingDetails, destination US) with the rate the page already states: 0.00 on the four CDs ("Free shipping in the USA"), 6.00 on the hat and 3.00 on the koozie (the merch FAQ and the PayPal buttons). Nothing else in the graph changed.
+- **Left out on purpose:** a return policy (the page states none, so none is marked up) and reviews or a rating (none on the page; the estate never invents them). Search Console will keep listing those three as missing; that is correct.
+- **Checked:** `site-kit check`: 0 failures, the same llms.txt warning as before. Deployed `469e4532`; submitted (IndexNow 1 URL, 200; Search Console; Bing).
+- **Owed:** nothing new.
+
 ## 2026-10-11 (monitor triage: the zone's country block lets crawlers and Lighthouse through)
 - **Why:** the estate monitor reported "Lighthouse SEO score 40" on www.bobbygrice.com twice in a row (failing audits: http-status-code, is-crawlable, meta-description). The zone's firewall events show why: PageSpeed ran Lighthouse from Taiwan at the minute of the check, and the zone's custom WAF rule "Block all non-US/Canada traffic" (expression `(ip.geoip.country ne "US" and ip.geoip.country ne "CA")`, in place since spring 2026) answered it with the 403 block page. The same rule blocked every search and AI crawler that fetched from outside the US and Canada.
 - **What:** the rule's expression now excludes verified bots (`cf.client.bot`) and any user agent containing `Chrome-Lighthouse` or `PageSpeed`; the block on people outside the allowed countries is unchanged. Changed over the Cloudflare API on the zone; nothing in this repo's build changed, so no deploy. The rule is now recorded in `CLAUDE.md → Infrastructure & accounts` (it was not written down anywhere before).
