@@ -2,6 +2,12 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-10-11 (monitor triage: the zone's country block lets crawlers and Lighthouse through)
+- **Why:** the estate monitor reported "Lighthouse SEO score 40" on www.bobbygrice.com twice in a row (failing audits: http-status-code, is-crawlable, meta-description). The zone's firewall events show why: PageSpeed ran Lighthouse from Taiwan at the minute of the check, and the zone's custom WAF rule "Block all non-US/Canada traffic" (expression `(ip.geoip.country ne "US" and ip.geoip.country ne "CA")`, in place since spring 2026) answered it with the 403 block page. The same rule blocked every search and AI crawler that fetched from outside the US and Canada.
+- **What:** the rule's expression now excludes verified bots (`cf.client.bot`) and any user agent containing `Chrome-Lighthouse` or `PageSpeed`; the block on people outside the allowed countries is unchanged. Changed over the Cloudflare API on the zone; nothing in this repo's build changed, so no deploy. The rule is now recorded in `CLAUDE.md → Infrastructure & accounts` (it was not written down anywhere before).
+- **Checked:** the monitor's daily check re-run for the host closed the finding.
+- **Owed:** nothing on the site. Michael's call whether the gate should live in `GEO_ALLOW` (the standard, crawler-exempt by user agent) instead of the zone rule.
+
 ## 2026-10-09 (estate scan Phase 4: titles carry "Bobby Rice", FAQs on bio and merch, pictures and LCP, schema, robots, llms.txt)
 - **Why:** the 2026-10-09 estate scan (plan row 4.14, `~/fleet/reports/seo/estate/2026-10-09/A.md` §2): Search Console showed "bobby rice" with 74 impressions a week on page 1 and no clicks, and no title carried the name that way; the phone LCP was 11.3 s; `sameAs` was a YouTube search URL; robots.txt named no private path; bio and merch had no FAQ. The client asked for nothing here.
 - **Titles and descriptions** (og/twitter titles follow):
