@@ -58,8 +58,8 @@
   "billing": {
     "stripeCustomer": null,
     "stripeSubscription": null,
-    "plan": null,
-    "notes": ""
+    "plan": "free",
+    "notes": "Not billed: a freebie for Bobby G Rice (Michael, 2026-10-11). billing.plan \"free\" silences the monitor's no-subscription notice."
   },
   "geo": null,
   "geoNote": "No geo-gate: GEO_ALLOW is empty on purpose, so the site keeps its audience outside the US (set with /traffic, 2026-09-17; CLAUDE.md → Forms, mail, tracking).",

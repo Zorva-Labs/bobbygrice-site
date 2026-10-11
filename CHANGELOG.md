@@ -2,6 +2,10 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-10-11 — billing recorded in site.json
+- **What Michael asked:** "fix the stripe subscription issues that you keep reporting" — the estate monitor's "No Stripe subscription recorded" notice on this site.
+- **What changed:** `site.json → billing` now records billing.plan "free" — a freebie for Bobby G Rice. Nothing on the site changed; no deploy. The monitor's billing check reads the subscription from here (`fleet index` pushes it) and watches it for past-due, canceled or cancel-at-period-end from now on.
+
 ## 2026-10-11 (Search Console: shipping on the merch offers)
 - **Why:** Search Console's two emails of 2026-10-11 for bobbygrice.com. Merchant listings: the six Offers on /merch carry no `shippingDetails` and no `hasMerchantReturnPolicy`. Product snippets: the six Products carry no `review` and no `aggregateRating`. All four are non-critical. The client asked for nothing here.
 - **What:** each Offer now carries `shippingDetails` (OfferShippingDetails, destination US) with the rate the page already states: 0.00 on the four CDs ("Free shipping in the USA"), 6.00 on the hat and 3.00 on the koozie (the merch FAQ and the PayPal buttons). Nothing else in the graph changed.
