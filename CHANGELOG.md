@@ -2,6 +2,11 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-10-11 (geo gate moved into the code)
+- **Why:** Lighthouse SEO scores of 40 across the estate (the monitor's findings; Springhaven's #285 tonight): Cloudflare zone WAF country rules, set up in the dashboard before the fleet and never in a repo, answered PageSpeed's Lighthouse run from Google's Taiwan data center with a 403. Michael, 2026-10-11: one gate for every site, in the code — "US only everywhere except Elopements Inc".
+- **What:** `GEO_ALLOW="US"` in `wrangler.toml [vars]` (was empty) and `site.json` (`geo`, `deploy.vars`), so the traffic-kit middleware gates every page to the US, with crawlers, Lighthouse and PageSpeed (by user agent), static files, `/traffic` and `/api/` exempt. Then the zone's WAF custom rule "Block all non-US/Canada traffic" (rule `8ca7d510`) was deleted. Canada is no longer let in (the rule allowed it; the estate's gate is US only). CLAUDE.md rewritten where it said the site had no gate.
+- **Checked:** `site-kit check` passes; deployed `215ea976`; the zone sweep (all 80 zones) finds no country rule; PageSpeed mobile SEO 100.
+
 ## 2026-10-11 — billing recorded in site.json
 - **What Michael asked:** "fix the stripe subscription issues that you keep reporting" — the estate monitor's "No Stripe subscription recorded" notice on this site.
 - **What changed:** `site.json → billing` now records billing.plan "free" — a freebie for Bobby G Rice. Nothing on the site changed; no deploy. The monitor's billing check reads the subscription from here (`fleet index` pushes it) and watches it for past-due, canceled or cancel-at-period-end from now on.

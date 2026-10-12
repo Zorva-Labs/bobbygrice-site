@@ -23,7 +23,7 @@
       "TRAFFIC_AGENCY_PASSWORDS"
     ],
     "vars": {
-      "GEO_ALLOW": "",
+      "GEO_ALLOW": "US",
       "CF_ZONE_ID": ""
     },
     "redirectRule": "zone ruleset e22e117065a24d978a8c0941e974156c, rule b3fdb4d6642b484ca27276d30d4d69cf: bobbygrice.com → https://www.bobbygrice.com + path, 301, query kept, /.well-known/ excluded (2026-09-23)"
@@ -61,8 +61,8 @@
     "plan": "free",
     "notes": "Not billed: a freebie for Bobby G Rice (Michael, 2026-10-11). billing.plan \"free\" silences the monitor's no-subscription notice."
   },
-  "geo": null,
-  "geoNote": "No geo-gate: GEO_ALLOW is empty on purpose, so the site keeps its audience outside the US (set with /traffic, 2026-09-17; CLAUDE.md → Forms, mail, tracking).",
+  "geo": "US",
+  "geoNote": "US only since 2026-10-11 (Michael): GEO_ALLOW=US in the middleware; the zone WAF country rule that blocked non-US/CA visitors (and Lighthouse) was deleted the same day.",
   "launched": "2026-05-15",
   "built": "2026-05-15",
   "updated": "2026-10-09",
