@@ -54,3 +54,5 @@ node ~/site-kit/bin/site-kit.mjs submit   # IndexNow + Search Console + Bing, on
   - the home page's meta description says "two-time CMA nominee" and `llms.txt` says two nominations, while Awards & Honors lists three in 1973 (Male Vocalist, Single and Album of the Year);
   - the bio dates the 50th release anniversary of "You Lay So Easy On My Mind" to 2023 in its text and to 2022 in its highlights;
   - the hero says "4+ Decades" and the pages "over four decades", while `llms.txt` says "over six decades" and "60+ years". The home share card carries the hero's "4+ Decades", so it changes with the hero.
+
+- Lead source: the FormSubmit form carries "Where this lead came from" from `/api/visit` (`functions/api/visit.js` + `assets/js/lead-source.js`, site-kit's copies — `ts_src` is HttpOnly, so the page asks the edge for it); a new form on this site loads `lead-source.js` too (`~/fleet/docs/reference/email.md` → Forms).

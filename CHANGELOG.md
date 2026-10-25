@@ -2,6 +2,12 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-10-24 — every inquiry says where it came from
+- **What Michael asked:** "all forms are supposed to send the traffic info with the lead form info." Here the contact form posts straight to FormSubmit, so nothing about the visit reached the inbox.
+- **What:** the edge already keeps the visit's entry in the HttpOnly `ts_src` cookie; a page cannot read it, so `functions/api/visit.js` (new, site-kit's copy, with `functions/_lib/visit.js`) reads it from a same-origin GET and answers with the rows, in the words `/traffic` uses (Direct reads Direct/ChatGPT). `assets/js/lead-source.js` (site-kit's copy, loaded by `index.html`) asks for it the first time someone starts on a form, and the FormSubmit form carries it as hidden fields (a "Where this lead came from" heading, then Source, Campaign, Referred by, Landed on with the time to convert, Form on, Device, the edge's estimate of the area, Connection, and the Direct/Unknown explanation), with the channel at the end of `_subject`. Nothing waits on it: a form sent before the answer arrives goes as it was. Nothing is stored and `/api/visit` logs nothing.
+- **Checked:** live: a visit landing from bing.com with a test `utm_source` gets the cookie and `/api/visit` answers with Source, Campaign, Referred by, Landed on and Form on. The form itself was not sent, so the owner got nothing.
+- **Owed:** nothing.
+
 ## 2026-10-23 — Direct is called Direct/ChatGPT on /traffic
 
 - **Why:** Michael, across the estate ("every site present and in the future"). A visit with no referrer is most often an AI assistant now — ChatGPT and the rest send none when a link is opened inside their app or pasted — so that traffic has always landed in Direct, while `/traffic` explained Direct as "someone who typed the address or used a bookmark". Wrong, and read as "they already knew us".
