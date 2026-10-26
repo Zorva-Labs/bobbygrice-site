@@ -2,6 +2,12 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-10-26 — /traffic sign-in: stray spaces ignored, a blocked sign-in says so
+
+- **Why:** Michael, 2026-10-26: Terry's password was not opening Noctis Aurora's `/traffic`, yet that live sign-in accepted both agency passwords and the site's own. Two ways a right password reads as wrong were closed on every site: a space or line break pasted in with it, and a request refused before the password was checked (the US-only gate, a Cloudflare block), which the form reported as "That password is not right."
+- **What:** `functions/_lib/auth.js` → `checkPassword` trims the typed password before comparing (`login-trim` block); the sign-in form in `traffic.html` shows our endpoint's own error as a wrong password and, for anything else, names the HTTP status and says the password was not checked (`login-error` block). Both lifted from traffic-kit's template by `bin/add-login-hardening.mjs`. Sessions are still signed with the stored `TRAFFIC_PASSWORD`, so nobody was signed out.
+- **Owed:** nothing.
+
 ## 2026-10-24 — every inquiry says where it came from
 - **What Michael asked:** "all forms are supposed to send the traffic info with the lead form info." Here the contact form posts straight to FormSubmit, so nothing about the visit reached the inbox.
 - **What:** the edge already keeps the visit's entry in the HttpOnly `ts_src` cookie; a page cannot read it, so `functions/api/visit.js` (new, site-kit's copy, with `functions/_lib/visit.js`) reads it from a same-origin GET and answers with the rows, in the words `/traffic` uses (Direct reads Direct/ChatGPT). `assets/js/lead-source.js` (site-kit's copy, loaded by `index.html`) asks for it the first time someone starts on a form, and the FormSubmit form carries it as hidden fields (a "Where this lead came from" heading, then Source, Campaign, Referred by, Landed on with the time to convert, Form on, Device, the edge's estimate of the area, Connection, and the Direct/Unknown explanation), with the channel at the end of `_subject`. Nothing waits on it: a form sent before the answer arrives goes as it was. Nothing is stored and `/api/visit` logs nothing.
