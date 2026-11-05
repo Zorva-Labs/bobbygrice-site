@@ -16,7 +16,9 @@
       "DB": "bobbygrice-analytics"
     },
     "r2": {},
-    "workers": [],
+    "workers": [
+      "bobbygrice-mail (workers/mail, send_email binding for the lead alerts; no route, reached over the Pages service binding MAIL; deploy with `cd workers/mail && npx wrangler deploy`)"
+    ],
     "secrets": [
       "TRAFFIC_PASSWORD",
       "CF_ANALYTICS_TOKEN",
@@ -24,7 +26,12 @@
     ],
     "vars": {
       "GEO_ALLOW": "US,CA,GB",
-      "CF_ZONE_ID": ""
+      "CF_ZONE_ID": "",
+      "SITE_NAME": "Bobby G. Rice",
+      "SITE_DOMAIN": "bobbygrice.com",
+      "MAIL_FROM": "Bobby G. Rice website <website@forms.bobbygrice.com>",
+      "MAIL_DEFAULT_REPLY": "bobbynalice@yahoo.com",
+      "STAFF_EMAIL": "bobbynalice@yahoo.com, michael@nashvilleswebdesign.com"
     },
     "redirectRule": "zone ruleset e22e117065a24d978a8c0941e974156c, rule b3fdb4d6642b484ca27276d30d4d69cf: bobbygrice.com → https://www.bobbygrice.com + path, 301, query kept, /.well-known/ excluded (2026-09-23)"
   },
@@ -35,10 +42,11 @@
   },
   "crm": null,
   "forms": {
-    "transport": "formsubmit",
-    "to": "bobbynalice@yahoo.com",
-    "activated": true,
-    "notes": "contact form added 2026-05-29, replacing a mailto button"
+    "transport": "d1+cloudflare",
+    "to": "bobbynalice@yahoo.com, michael@nashvilleswebdesign.com",
+    "from": "Bobby G. Rice website <website@forms.bobbygrice.com>",
+    "activated": false,
+    "notes": "Since 2026-11-05, off FormSubmit: the booking form on the home page post JSON through assets/js/lead-form.js to functions/api/lead.js -> D1 leads first -> Cloudflare Email Routing (workers/mail, MAIL service binding) from forms.bobbygrice.com. `activated` = bobbynalice@yahoo.com is a verified Email Routing destination: false until the owner clicks Cloudflare's link (requested 2026-11-05); until then only michael@ receives the alert and the row records the miss in notify_error. zq7x honeypot + hp_ms time-trap, no Turnstile (the nwd account's 20 widgets are full). scripts/hookup.mjs is deliberately not installed: this site is canonical on www and it would rewrite the redirect ruleset to www -> apex."
   },
   "mail": null,
   "google": {

@@ -2,13 +2,13 @@
   "host": "www.bobbygrice.com",
   "endpoint": "https://www.bing.com/indexnow",
   "version": 2,
-  "submitted": "2026-10-11T13:05:14.593Z",
+  "submitted": "2026-11-05T23:33:04.759Z",
   "google": {
     "property": "sc-domain:bobbygrice.com",
     "sitemaps": [
       "https://www.bobbygrice.com/sitemap.xml"
     ],
-    "submitted": "2026-10-11T13:05:15.561Z"
+    "submitted": "2026-11-05T23:33:05.662Z"
   },
   "bing": {
     "site": "https://bobbygrice.com/",
@@ -31,8 +31,8 @@
       "changed": "2026-10-11"
     },
     "https://www.bobbygrice.com/privacy": {
-      "hash": "bbf3376580ce8306",
-      "changed": "2026-10-09"
+      "hash": "d0f85799c815c0df",
+      "changed": "2026-11-05"
     }
   }
 }

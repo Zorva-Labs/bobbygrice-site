@@ -1,0 +1,17 @@
+# bobbygrice-mail — sends the site's lead alerts through Cloudflare Email Routing.
+# Pages projects cannot hold a send_email binding (wrangler refuses it), so this
+# private Worker owns it and the Pages function reaches it over the MAIL service
+# binding (../../wrangler.toml). No route and no workers.dev host: reachable only
+# through that binding.
+#   set -a; . ~/.env; set +a; unset CLOUDFLARE_API_KEY CLOUDFLARE_EMAIL
+#   cd workers/mail && npx wrangler deploy
+name = "bobbygrice-mail"
+main = "src/index.js"
+compatibility_date = "2026-09-20"
+workers_dev = false
+
+# Cloudflare only delivers to addresses verified in the account's Email Routing
+# destination list; this narrows it to the owner's inbox and michael@.
+[[send_email]]
+name = "SEND"
+allowed_destination_addresses = ["bobbynalice@yahoo.com", "michael@nashvilleswebdesign.com"]
