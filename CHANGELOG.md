@@ -2,6 +2,12 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-11-06 — michael@ stays on the lead alerts until the owner verifies
+
+- **What:** nothing deployed. Michael asked that client forms stop copying him, but `bobbynalice@yahoo.com` is unverified in the Email Routing addresses API, so Cloudflare refuses every send to it and michael@ is the only copy that arrives.
+- **Why:** Michael, 2026-11-06: "all forms should only mail the clients and not cc me." Taking michael@ off today would leave the leads in D1 with nobody told.
+- **Owed:** the owner clicks Cloudflare's verification link; then take michael@ off `STAFF_EMAIL` and `site.json → forms.to`, set `forms.activated` true and redeploy.
+
 ## 2026-11-05 — The booking form sends its own mail: off FormSubmit, onto Cloudflare
 
 - **What Michael asked:** "fix all sites using form submit, move them all to cloudflare." formsubmit.co was answering HTTP 522 while this was done, as it did on 2026-11-04; a post to it during an outage was lost outright, because nothing was stored on our side.
