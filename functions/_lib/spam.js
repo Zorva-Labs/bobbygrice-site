@@ -124,7 +124,6 @@ export function solicitationReason(data, siteDomain) {
   const hits = [];
   const domain = email.split('@')[1] || '';
   if (site && (domain === site || domain.endsWith(`.${site}`))) hits.push(`email at ${site} itself`);
-  if (domain && MARKETING_DOMAIN.test(domain.replace(/\.[a-z]+$/, ''))) hits.push(`marketing email domain (${domain})`);
   /* An impossible US number is a WEAK sign, not a strong one (2026-11-04). It
      used to flag on its own, and on postcardsforless.com's rows that cost a
      real customer: he mistyped his area code and his quote request would have
@@ -133,6 +132,20 @@ export function solicitationReason(data, siteDomain) {
      wording, and the one with a valid number (bizcentralhelp.com, 2026-10-22)
      was invisible to this check anyway. */
   const soft = [];
+  /* The sender's domain is a WEAK sign, not a strong one (2026-11-07). It used
+     to flag on its own, and it has now misread two senders that were not
+     pitching anything: parkerstreetagency.com, a real EDDM quote request on
+     postcardsforless.com (2026-10-07, 1,000-2,499 in Tampa, off the EDDM cost
+     guide, no pitch language anywhere), and our own nashvilleswebdesign.com on
+     a live check (2026-11-04). Both were caught by nothing but a word inside
+     the domain -- `agency` and `webdesign`.
+     On a direct-mail site a marketing agency buying postcards for its client IS
+     the customer, so the domain by itself can never carry a flag. The asymmetry
+     decides it: a flagged pitch costs the owner the ten seconds he would have
+     spent deleting it, while a flagged customer can be skipped unread, and that
+     costs him the job. A real pitch still flags on its wording -- all four link
+     pitches that reached postcardsforless.com do, on STRONG above. */
+  if (domain && MARKETING_DOMAIN.test(domain.replace(/\.[a-z]+$/, ''))) soft.push(`marketing email domain (${domain})`);
   if (phone) {
     const n = phone.length === 11 && phone[0] === '1' ? phone.slice(1) : phone;
     if (!/^[2-9](?!11)\d\d[2-9]\d{6}$/.test(n)) soft.push('phone is not a real US number');
