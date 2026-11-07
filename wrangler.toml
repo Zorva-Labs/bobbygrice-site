@@ -3,9 +3,9 @@ compatibility_date = "2026-09-17"
 pages_build_output_dir = "dist"
 
 [vars]
-STAFF_EMAIL = "bobbynalice@yahoo.com, michael@nashvilleswebdesign.com"
+STAFF_EMAIL = "bobbynalice@yahoo.com"
 MAIL_DEFAULT_REPLY = "bobbynalice@yahoo.com"
-MAIL_FROM = "Bobby G. Rice website <website@forms.bobbygrice.com>"
+MAIL_FROM = "Bobby G. Rice website <website@leads.nashvilleswebdesign.com>"
 SITE_DOMAIN = "bobbygrice.com"
 SITE_NAME = "Bobby G. Rice"
 GEO_ALLOW = "US,CA,GB"
@@ -16,7 +16,7 @@ binding = "DB"
 database_name = "bobbygrice-analytics"
 database_id = "671dde3c-2b21-413f-8535-c324c60580bf"
 
-# Lead alerts go out through workers/mail (Cloudflare Email Routing); Pages cannot
+# Lead alerts go out through workers/mail (Cloudflare Email Sending); Pages cannot
 # hold the send_email binding itself, so it calls that Worker here.
 [[services]]
 binding = "MAIL"

@@ -43,12 +43,16 @@
   "crm": null,
   "forms": {
     "transport": "d1+cloudflare",
-    "to": "bobbynalice@yahoo.com, michael@nashvilleswebdesign.com",
-    "from": "Bobby G. Rice website <website@forms.bobbygrice.com>",
-    "activated": false,
-    "notes": "Since 2026-11-05, off FormSubmit: the booking form on the home page post JSON through assets/js/lead-form.js to functions/api/lead.js -> D1 leads first -> Cloudflare Email Routing (workers/mail, MAIL service binding) from forms.bobbygrice.com. `activated` = bobbynalice@yahoo.com is a verified Email Routing destination: false until the owner clicks Cloudflare's link (requested 2026-11-05); until then only michael@ receives the alert and the row records the miss in notify_error. zq7x honeypot + hp_ms time-trap, no Turnstile (the nwd account's 20 widgets are full). scripts/hookup.mjs is deliberately not installed: this site is canonical on www and it would rewrite the redirect ruleset to www -> apex."
+    "to": "bobbynalice@yahoo.com",
+    "from": "website@leads.nashvilleswebdesign.com",
+    "activated": true,
+    "notes": "Since 2026-11-07 the alerts leave from website@leads.nashvilleswebdesign.com through Cloudflare Email Sending (workers/mail, the MAIL binding): any address can receive with nothing to click, and only STAFF_EMAIL changes a recipient (redeploy after). site-kit lead-test proves it. Before that: Since 2026-11-05, off FormSubmit: the booking form on the home page post JSON through assets/js/lead-form.js to functions/api/lead.js -> D1 leads first -> Cloudflare Email Routing (workers/mail, MAIL service binding) from forms.bobbygrice.com. `activated` = bobbynalice@yahoo.com is a verified Email Routing destination: false until the owner clicks Cloudflare's link (requested 2026-11-05); until then only michael@ receives the alert and the row records the miss in notify_error. zq7x honeypot + hp_ms time-trap, no Turnstile (the nwd account's 20 widgets are full). scripts/hookup.mjs is deliberately not installed: this site is canonical on www and it would rewrite the redirect ruleset to www -> apex."
   },
-  "mail": null,
+  "mail": {
+    "transport": "cloudflare-email-sending",
+    "from": "website@leads.nashvilleswebdesign.com",
+    "notes": "the private Worker workers/mail holds the send_email binding; the sender never changes"
+  },
   "google": {
     "ga4Property": "555802348",
     "ga4Measurement": "G-FM5M8NEW51",

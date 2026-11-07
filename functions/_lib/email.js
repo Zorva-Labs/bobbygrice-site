@@ -3,7 +3,7 @@
 // third party, nothing that expires. With no MAIL binding the send is skipped
 // and reported (`no_transport`) — the lead is still in D1, and the row says so.
 //
-// Env (wrangler.toml [vars]): MAIL_FROM ("Name <website@forms.<domain>>"),
+// Env (wrangler.toml [vars]): MAIL_FROM ("Name <website@leads.nashvilleswebdesign.com>"),
 // MAIL_DEFAULT_REPLY (Reply-To when the caller sets none), SITE_NAME,
 // SITE_DOMAIN (the shell's header and footer).
 const DEFAULT_REPLY = 'michael@nashvilleswebdesign.com';
@@ -17,7 +17,7 @@ const DEFAULT_REPLY = 'michael@nashvilleswebdesign.com';
 export async function sendEmail(env, opts) {
   const toList = Array.isArray(opts.to) ? opts.to : (opts.to ? [opts.to] : []);
   if (!toList.length) return { skipped: true, reason: 'no_recipients' };
-  const from = opts.from || env.MAIL_FROM || `${siteBrand(env).name} <website@forms.${siteBrand(env).domain}>`;
+  const from = opts.from || env.MAIL_FROM || `${siteBrand(env).name} <website@leads.nashvilleswebdesign.com>`;
   const messageId = opts.messageId || makeMessageId(addrDomain(from));
   if (!(env.MAIL && typeof env.MAIL.fetch === 'function')) {
     console.warn('[email] no mail transport (MAIL binding) — skipping send');

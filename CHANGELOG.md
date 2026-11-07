@@ -2,6 +2,18 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-11-07 — The form moved to the shared sender
+
+The booking form's alerts now leave from `website@leads.nashvilleswebdesign.com` through Cloudflare Email Sending, and go to `bobbynalice@yahoo.com` alone. The Worker is the kit's; `allowed_destination_addresses` is gone; `MAIL_FROM`, `STAFF_EMAIL`, the manifest and the manual changed with it.
+
+Why: the old path could not deliver until Bobby clicked Cloudflare's verification email, and he had not. The new sender needs no click from anyone. Michael approved the move on 2026-11-07; Bobby asked for nothing and was not emailed.
+
+`/privacy` no longer says form messages also go to Nashville's Web Design, because they don't.
+
+Proof: a test lead through a preview deployment with `STAFF_EMAIL` at michael@ saved, mailed and arrived in Gmail from the new sender; the test row and the preview were removed. There were no leads in D1 to resend.
+
+Owed: nothing from Bobby; the 2026-11-06 item (his click, then take michael@ off) is closed, and the old verification letters can be ignored. Delivery to Yahoo has not been seen from here, because we hold no Yahoo mailbox. A refused send still shows as `notify_error` on the row, and the monitor alerts on it; a message Yahoo accepts and files as junk would not show.
+
 ## 2026-11-06 — Verification resent
 
 - **What:** Cloudflare's verification for bobbynalice@yahoo.com sent again on Michael's yes (`POST` to the account's `email/routing/addresses`, 02:46 UTC on 11-07). The status still reads unverified, and michael@ stays on the alerts until it changes.
