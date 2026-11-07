@@ -2,6 +2,11 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-11-06 — Verification resent
+
+- **What:** Cloudflare's verification for bobbynalice@yahoo.com sent again on Michael's yes (`POST` to the account's `email/routing/addresses`, 02:46 UTC on 11-07). The status still reads unverified, and michael@ stays on the alerts until it changes.
+- **Owed:** the click. Then take michael@ off `STAFF_EMAIL` and `site.json → forms.to`, set `forms.activated` true, **drop "and to Nashville's Web Design" from the privacy section**, and redeploy.
+
 ## 2026-11-06 — michael@ stays on the lead alerts until the owner verifies
 
 - **What:** nothing deployed. Michael asked that client forms stop copying him, but `bobbynalice@yahoo.com` is unverified in the Email Routing addresses API, so Cloudflare refuses every send to it and michael@ is the only copy that arrives.
