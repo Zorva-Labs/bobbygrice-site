@@ -315,6 +315,15 @@ export async function onRequest(context) {
     return new Response(null, { status: 301, headers: { location: to.toString(), 'cache-control': 'public, max-age=3600' } });
   }
   const path = url.pathname;
+  // The old Wix site's pages that Google still asks for (Search Console's 404s,
+  // 2026-11-09): each goes to where that content lives now, query kept.
+  const OLD = { '/copy-of-bio': '/bio', '/albums': '/#music', '/video': '/#videos', '/contact': '/#contact' };
+  const old = OLD[path.replace(/\/+$/, '')];
+  if (old) {
+    const [p, hash] = old.split('#');
+    const to = new URL(p + url.search + (hash ? `#${hash}` : ''), 'https://www.bobbygrice.com');
+    return new Response(null, { status: 301, headers: { location: to.toString(), 'cache-control': 'public, max-age=3600' } });
+  }
   if (isRepoFile(path)) return notFound(context, url);
   const ua = request.headers.get('user-agent') || '';
   const bot = botName(ua) || adReviewBot(context.request, url);

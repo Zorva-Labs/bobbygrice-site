@@ -2,6 +2,12 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-11-09 — The old Wix pages redirect
+
+`/copy-of-bio`, `/albums`, `/video` and `/contact` from the old Wix site now answer with a 301: the first goes to `/bio`, the other three to their sections on the home page (`/#music`, `/#videos`, `/#contact`). A trailing slash works too, and the query string is kept. The map is in `functions/_middleware.js`, not `_redirects`, because `_routes.json` sends every path to Functions.
+
+Why: Search Console reported these four URLs as 404s on www.bobbygrice.com. Google still asks for them, so the links that point there now count toward the pages that exist. Bobby asked for nothing.
+
 ## 2026-11-07 — The form moved to the shared sender
 
 The booking form's alerts now leave from `website@leads.nashvilleswebdesign.com` through Cloudflare Email Sending, and go to `bobbynalice@yahoo.com` alone. The Worker is the kit's; `allowed_destination_addresses` is gone; `MAIL_FROM`, `STAFF_EMAIL`, the manifest and the manual changed with it.
