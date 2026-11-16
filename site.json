@@ -22,7 +22,8 @@
     "secrets": [
       "TRAFFIC_PASSWORD",
       "CF_ANALYTICS_TOKEN",
-      "TRAFFIC_AGENCY_PASSWORDS"
+      "TRAFFIC_AGENCY_PASSWORDS",
+      "TRAFFIC_CLIENT_PASSWORD"
     ],
     "vars": {
       "GEO_ALLOW": "US,CA,GB",
@@ -38,7 +39,8 @@
   "traffic": {
     "path": "/traffic",
     "passwordEnv": "BOBBYGRICE_TRAFFIC_PASSWORD",
-    "kit": "traffic-kit"
+    "kit": "traffic-kit",
+    "clientPasswordEnv": "BOBBYGRICE_TRAFFIC_CLIENT_PASSWORD"
   },
   "crm": null,
   "forms": {
