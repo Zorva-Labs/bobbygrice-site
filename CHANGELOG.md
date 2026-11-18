@@ -2,6 +2,12 @@
 
 Newest first. One entry per session that changed this repo: what changed, why, what the client asked for, what is still owed. Infrastructure changes also go in `site.json` and `CLAUDE.md`. Entries dated before 2026-09-17 are reconstructed from git history; the reasoning behind them is in `CLAUDE.md` and in `~/fleet/docs/archive`.
 
+## 2026-11-18 — Breadcrumbs rooted at "Country Singer Bobby G. Rice"
+
+- **Asked:** Michael, 2026-11-18: "all sites present and future should use bread crumbs and never use Home for the homepage it should be a keyword that makes sense."
+- **What:** `bio.html`, `merch.html` and `privacy.html` gained a visible breadcrumb (`nav.crumbs`, in each hero above the eyebrow, Cormorant Garamond in cream with a gold slash, styled in each page's inline CSS) and their BreadcrumbList root changed from "Home". The root crumb reads **Country Singer Bobby G. Rice** in both the visible crumb and the BreadcrumbList (position 1, item the home URL). The home page, 404 and noindex pages are untouched. `site-kit check` Breadcrumbs pass; deployed.
+- **Still owed:** nothing.
+
 ## 2026-11-16 — The client's own /traffic password
 
 - **Michael:** "for every site with a traffic page that is for a client and live. generate a traffic page password and email it to them. Do not remove any existing passwords."

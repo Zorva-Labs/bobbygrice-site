@@ -2,13 +2,13 @@
   "host": "www.bobbygrice.com",
   "endpoint": "https://www.bing.com/indexnow",
   "version": 2,
-  "submitted": "2026-11-07T18:15:47.213Z",
+  "submitted": "2026-11-18T12:04:43.453Z",
   "google": {
     "property": "sc-domain:bobbygrice.com",
     "sitemaps": [
       "https://www.bobbygrice.com/sitemap.xml"
     ],
-    "submitted": "2026-11-07T18:15:47.905Z"
+    "submitted": "2026-11-18T12:04:44.185Z"
   },
   "bing": {
     "site": "https://bobbygrice.com/",
@@ -23,16 +23,16 @@
       "changed": "2026-10-09"
     },
     "https://www.bobbygrice.com/bio": {
-      "hash": "d279e5795a1ebc8f",
-      "changed": "2026-10-09"
+      "hash": "4189982dc32ab63a",
+      "changed": "2026-11-18"
     },
     "https://www.bobbygrice.com/merch": {
-      "hash": "4d1da852d2aeed53",
-      "changed": "2026-10-11"
+      "hash": "e0fe1b6b22727185",
+      "changed": "2026-11-18"
     },
     "https://www.bobbygrice.com/privacy": {
-      "hash": "dc5e52465e57ba08",
-      "changed": "2026-11-07"
+      "hash": "73ffd4cbffdac7ca",
+      "changed": "2026-11-18"
     }
   }
 }

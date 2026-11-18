@@ -134,7 +134,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "Country Singer Bobby G. Rice",
           "item": "https://www.bobbygrice.com/"
         },
         {
@@ -658,6 +658,13 @@
       .nav-logo { font-size: 1.4rem; }
       .acc-title { font-size: 1.85rem; }
     }
+      /* Breadcrumb (2026-11-18) */
+    .crumbs { margin: 0 0 14px; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
+    .crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 0 10px; font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 1px; color: rgba(245,240,232,0.72); }
+    .crumbs li + li::before { content: '/'; margin-right: 10px; color: #c9a84c; }
+    .crumbs a { display: inline-flex; align-items: center; min-height: 44px; color: rgba(245,240,232,0.72); text-decoration: none; transition: color 0.3s; }
+    .crumbs a:hover { color: #c9a84c; }
+    @media (max-width: 1024px) { .crumbs ol { justify-content: center; } }
   </style>
 </head>
 <body>
@@ -695,6 +702,7 @@
         <div class="bio-hero-image-glow"></div>
       </div>
       <div class="bio-hero-text">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Country Singer Bobby G. Rice</a></li><li aria-current="page">Bio</li></ol></nav>
         <p class="bio-hero-eyebrow">The Legend</p>
         <h1 class="bio-hero-title">About Bobby</h1>
         <p class="bio-hero-subtitle">Bobby G. Rice</p>
